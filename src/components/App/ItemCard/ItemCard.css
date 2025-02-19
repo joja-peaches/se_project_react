@@ -1,0 +1,26 @@
+.clothes-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+} 
+
+.clothes-card__title {
+    font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgb(0, 0, 0, .6);
+    background-color: #fff;
+    position: absolute;
+    margin: 15px 0 0;
+    padding: 2px 12px;
+}
+
+.clothes-card__image {
+    width: 325px;
+    height: 328px;
+    border-color: rgb(0, 0, 0, .3);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+}
