@@ -1,6 +1,6 @@
-.cards {
+/* .cards {
 
-}
+} */
 
 .cards__text {
     margin: 0;
@@ -12,9 +12,10 @@
 
 .cards__list {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    column-gap: 19px;
+    list-style-type: none;
+    flex-flow: row wrap;
+    gap: 20px;
     padding-left: 0;
     margin: 0;
+    width: 1360px;
 }
