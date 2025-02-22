@@ -1,14 +1,31 @@
-import dayStorm from '../../../assets/images/day-storm.png';
-import './WeatherCard.css';
-import { defaultClothingItems } from '../../../utils/constants';
+import dayStorm from "../../../assets/images/day/thunderstorm.png";
+import "./WeatherCard.css";
 
-function WeatherCard({weatherData}) {
+import { weatherOptions } from "../../../utils/constants";
+
+function WeatherCard({ weatherData }) {
+  const filteredOptions = weatherOptions.filter((option) => {
+
     return (
-        <section className="weather-card">
-            <p className="weather-card__temp">{weatherData.temp.F} F</p>
-            <img src={dayStorm} alt="stormy daytime weather" className="weather-card__image" />   
-        </section>
-    )
+      option.day === weatherData.isDay &&
+      option.condition === weatherData.condition
+    );
+  });
+
+  const weatherOptionUrl = filteredOptions[0]?.url;
+  const weatherOptionCondition = filteredOptions[0]?.condition;
+  const weatherOptionDay = filteredOptions[0]?.day;
+
+  return (
+    <section className="weather-card">
+      <p className="weather-card__temp">{weatherData.temp.F} F</p>
+      <img
+        src={weatherOptionUrl}
+        alt={`Card showing ${weatherOptionDay} ${weatherOptionCondition}`}
+        className="weather-card__image"
+      />
+    </section>
+  );
 }
 
 export default WeatherCard;
