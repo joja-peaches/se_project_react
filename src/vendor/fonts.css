@@ -1,6 +1,13 @@
 @font-face {
     font-family: CabinetGrotesk;
     style: normal;
-    font-weight: 700;
+    font-weight: 500;
     src: url('./fonts/CabinetGrotesk-Regular.woff');
+}
+
+@font-face {
+    font-family: CabinetGrotesk;
+    style: normal;
+    font-weight: 700;
+    src: url('./fonts/CabinetGrotesk-Bold.woff');
 }
