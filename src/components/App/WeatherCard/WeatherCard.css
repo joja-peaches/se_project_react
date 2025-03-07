@@ -24,3 +24,10 @@
      object-position: right top;
      width: 100%;
 }
+
+@media screen and (max-width: 480px) {
+    .weather-card {
+        max-width: 96vw;
+        margin: 0 auto;
+    }
+}

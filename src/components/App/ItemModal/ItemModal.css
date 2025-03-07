@@ -48,3 +48,28 @@
     margin: 0;
     padding: 12px 0 0 32px;
 }
+
+@media screen and (max-width: 480px) {
+    .modal__content {
+        max-width: 96vw;
+        max-height: 60vh;
+    }
+
+    .modal__image {
+        max-width: 96vw;
+        max-height: 96vw;
+        
+    }
+
+    .modal__caption {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 20px 0 0 24px;
+    }
+    
+    .modal__weather {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 12px 0 0 24px;
+    }    
+}

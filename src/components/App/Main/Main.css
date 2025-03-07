@@ -15,3 +15,19 @@
     margin: 0;
     width: 1360px;
 }
+
+@media screen and (max-width: 480px) {
+    .cards__text {
+        padding: 4vh 2vw 2vh;
+        text-align: center;
+        font-size: 18px;
+        line-height: 20px;
+    }
+    
+    .cards__list {
+        flex-flow: column wrap;
+        gap: 16px;
+        align-items: center;
+        width: 100vw;
+    }
+}

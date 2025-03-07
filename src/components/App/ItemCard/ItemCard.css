@@ -19,7 +19,6 @@
 }
 
 .card__image {
-    /* width: 100%; */
     height: 328px;
     border-color: rgb(0, 0, 0, .3);
     border-style: solid;

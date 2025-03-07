@@ -49,3 +49,40 @@
     width: 40px;
     align-self: center;
 }
+
+@media screen and (max-width: 480px) {
+    .header {
+        width: 100vw;
+    }
+    
+    .header__logo {
+        width: 60px;
+        padding-left: 2vw;
+        padding-right: 6vw;
+    }
+    
+    .header__date-and-location {
+        font-size: 18px;
+        line-height: 20px; 
+    }
+    
+    .header__add-clothes-btn {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    
+    .header__user-container {
+        column-gap: 6px;
+    }
+    
+    .header__username {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    
+    .header__avatar {
+        height: 30px;
+        width: 30px;
+        padding-right: 2vw;
+    }
+}

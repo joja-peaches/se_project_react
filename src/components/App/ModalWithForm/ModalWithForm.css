@@ -115,3 +115,26 @@
 .modal__submit:hover {
     background-color: rgb(0, 0, 0, .6);
 }
+
+@media screen and (max-width: 480px) {
+    .modal {
+        max-width: 100%;
+    }
+
+    .modal__form {
+        max-width: 96vw;
+        margin: 0 auto;
+    }
+
+    .modal__label {
+
+    }
+
+    .modal__input {
+        width: 81vw;
+    }
+
+    .modal__radio-buttons {
+        /* width: 78%; */
+    }
+}
