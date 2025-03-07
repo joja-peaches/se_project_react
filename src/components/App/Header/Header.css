@@ -19,8 +19,8 @@
 }
 
 .header__add-clothes-btn {
-    margin-left: auto;
     font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    padding-left: 20px;
     font-weight: 700;
     font-size: 20px;
     line-height: 40px;
