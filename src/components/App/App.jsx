@@ -39,7 +39,7 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("create");
-    console.log('test');
+    console.log('create');
   };
 
   const closeActiveModal = () => {
@@ -61,7 +61,7 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header handleAddClick={() => setActiveModal("preview")} weatherData={weatherData} />
+          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
           <Main
             weatherData={weatherData}
             handleCardClick={handleCardClick}
@@ -140,7 +140,7 @@ function App() {
             </fieldset>
           </ModalWithForm> */}
           <ItemModal
-            isOpen={activeModal === "preview"}
+            isOpen={activeModal === 'preview'}
             card={selectedCard}
             onClose={closeActiveModal}
           />

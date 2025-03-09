@@ -3,7 +3,7 @@ import "./ItemModal.css";
 function ItemModal({ isOpen, onClose, card }) {
   return (
     <div
-      className={`modal modal_type_image ${isOpen ? "modal_is-opened" : ""}`}
+      className={`modal modal_type_image ${isOpen ? "modal_opened" : ""}`}
     >
       <div className="modal__content modal__content_type_image">
         <button
