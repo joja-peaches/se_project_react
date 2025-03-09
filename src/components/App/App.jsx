@@ -10,12 +10,15 @@ import Footer from "./Footer/Footer";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
+import AddItemModal from "../AddItemModal/AddItemModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
-    temp: { F: 999 },
+    temp: { F: 999, C: 999 },
     city: "",
+    condition: "",
+    isDay: false,
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -25,13 +28,18 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
+  const handleAddItemSubmit = () => {
+    console.log("hello")
+  }
+
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
   };
 
   const handleAddClick = () => {
-    setActiveModal("add-garment");
+    setActiveModal("create");
+    console.log('test');
   };
 
   const closeActiveModal = () => {
@@ -53,13 +61,18 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header handleAddClick={() => setActiveModal("preview")} weatherData={weatherData} />
           <Main
             weatherData={weatherData}
             handleCardClick={handleCardClick}
             currentTemperatureUnit={currentTemperatureUnit}
           />
-          <ModalWithForm
+          <AddItemModal
+            onAddItem={handleAddItemSubmit}
+            onClose={closeActiveModal}
+            isOpen={activeModal === "create"}
+          />
+          {/* <ModalWithForm
             title="New garment"
             buttonText="Add garment"
             activeModal={activeModal}
@@ -125,9 +138,9 @@ function App() {
                 Cold
               </label>
             </fieldset>
-          </ModalWithForm>
+          </ModalWithForm> */}
           <ItemModal
-            activeModal={activeModal}
+            isOpen={activeModal === "preview"}
             card={selectedCard}
             onClose={closeActiveModal}
           />
