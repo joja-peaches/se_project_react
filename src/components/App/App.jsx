@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
 // NEW BRANCH PROJECT 11
 import "./App.css";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
+import Profile from "./Profile/Profile";
 import ItemModal from "./ItemModal/ItemModal";
 import Footer from "./Footer/Footer";
 
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
-import AddItemModal from "../AddItemModal/AddItemModal";
+import AddItemModal from "./AddItemModal/AddItemModal";
 import { defaultClothingItems } from "../../utils/constants";
+import { getItems, addItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -24,14 +28,15 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  // const [clothingItems, setClothingItems] = useState([]);
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
-  const handleAddItemSubmit = () => {
-    console.log("hello")
-  }
+  // const handleAddItemSubmit = () => {
+  //   console.log("hello");
+  // };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -40,7 +45,7 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("create");
-    console.log('create');
+    console.log("create");
   };
 
   const closeActiveModal = () => {
@@ -49,15 +54,30 @@ function App() {
 
   const handleAddItemModalSubmit = (name, imgUrl, weather) => {
     const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems((prevItems) => [{name, link: imgUrl, weather, _id: newId}, ...prevItems]);
+    setClothingItems((prevItems) => [
+      { name, link: imgUrl, weather, _id: newId },
+      ...prevItems,
+    ]);
     closeActiveModal();
   };
+
+  const handleDeleteItem = (e) => {
+    console.log(e.target.parentElement.parentElement);
+  }
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(defaultClothingItems);
       })
       .catch(console.error);
   }, []);
@@ -69,22 +89,33 @@ function App() {
       <div className="page">
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-          <Main
-            weatherData={weatherData}
-            handleCardClick={handleCardClick}
-            currentTemperatureUnit={currentTemperatureUnit}
-            clothingItems = {clothingItems}
-          />
+          <Routes>
+            <Route
+              path="/se_project_react"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  currentTemperatureUnit={currentTemperatureUnit}
+                  clothingItems={clothingItems}
+                />
+              }
+            />
+            <Route
+              path="/se_project_react/profile"
+              element={<Profile onCardClick={handleCardClick} />}
+            />
+          </Routes>
           <AddItemModal
-            onAddItem={handleAddItemSubmit}
             onClose={closeActiveModal}
             isOpen={activeModal === "create"}
             onAddItemModalSubmit={handleAddItemModalSubmit}
           />
           <ItemModal
-            isOpen={activeModal === 'preview'}
+            isOpen={activeModal === "preview"}
             card={selectedCard}
             onClose={closeActiveModal}
+            onDelete={handleDeleteItem}
           />
           <Footer />
         </div>

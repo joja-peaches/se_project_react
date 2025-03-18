@@ -12,6 +12,8 @@
 
 @media screen and (max-width: 480px) {
     .footer {
-        padding: 2vw
+        padding: 0 16px;
+        display: sticky;
+        bottom: 20px;
     }
 }

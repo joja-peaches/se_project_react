@@ -1,8 +1,8 @@
 import "./AddItemModal.css";
-import ModalWithForm from "../App/ModalWithForm/ModalWithForm";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-export default function AddItemModal({onAddItem, onClose, isOpen, onAddItemModalSubmit}) {
+export default function AddItemModal({onClose, isOpen, onAddItemModalSubmit}) {
   const [name, setName] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -13,7 +13,6 @@ export default function AddItemModal({onAddItem, onClose, isOpen, onAddItemModal
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log("submit");
     onAddItemModalSubmit(name, imgUrl, weather);
     setName('');
     setImgUrl('');
@@ -25,7 +24,6 @@ export default function AddItemModal({onAddItem, onClose, isOpen, onAddItemModal
       title="New garment"
       name="new-card"
       buttonText="Add garment"
-      onSubmit={onAddItem}
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}

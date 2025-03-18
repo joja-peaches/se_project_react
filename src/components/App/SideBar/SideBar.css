@@ -1,0 +1,73 @@
+.sidebar {
+    display: flex;
+}
+
+.sidebar__avatar {
+    width: 56px;
+    height: 56px;
+    padding: 0 16px 0 0;
+}
+
+.sidebar__mobile {
+    
+}
+
+.sidebar__username {
+    font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 700;
+    margin: 16px 0 0;
+}
+
+.sidebar__profile-text {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar {
+        border-top: 1px;
+        border-bottom: 1px;
+        border-style: solid;
+        border-right: 0;
+        border-left: 0;
+        border-color: rgb(0, 0, 0, .3);
+        width: 343px;
+        align-content: auto;
+        padding: 20px 0 0;
+    }
+    .sidebar__avatar {
+        width: 56px;
+        height: 56px;
+        padding: 0 20px 0 0;
+    }
+
+    .sidebar__mobile {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        height: 100px;
+        width: 267px;
+    }
+
+    .sidebar__username {
+        font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        margin: 0;
+        font-size: 24px;
+        line-height: 100%;
+        visibility: visible;
+        padding-bottom: 4px;
+    }
+
+    .sidebar__profile-text {
+        font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        color: rgb(0, 0, 0, .6);
+        visibility: visible;
+        margin: 0;
+        visibility: visible;
+    }
+}

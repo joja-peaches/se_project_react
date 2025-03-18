@@ -7,6 +7,7 @@
     cursor: pointer;
     position: relative;
     z-index: 0;
+    visibility: visible;
 }
 
 .toggle-switch__checkbox {
@@ -59,4 +60,12 @@
 
 .toggle-switch__text_color_white {
     color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .toggle-switch {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
 }

@@ -25,3 +25,23 @@
     border-width: 1px;
     border-radius: 20px;
 }
+
+@media screen and (max-width: 480px) {
+    .card {
+        flex-wrap: wrap;
+        height: 164px;
+        width: 164px;
+        row-gap: 8px;
+    }
+
+    .card__title {
+        padding: 0 12px;
+        top: 8px;
+    }
+    
+    .card__image {
+        height: 164px;
+        width: 164px;
+        border-radius: 11px;
+    }
+}
