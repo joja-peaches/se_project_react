@@ -105,10 +105,11 @@
 
 @media screen and (max-width: 480px) {
     .header {
-        width: 375px;
-        height: 224px;
+        width: 343px;
+        height: 44px;
         flex-direction: column;
-        padding: 0;
+        padding: 0 0 20px;
+        margin: 0 auto;
     }
     
     .header__container {
@@ -186,7 +187,7 @@
     }
     
     .header__profile-container {
-        border-top: 1px;
+        /* border-top: 1px;
         border-bottom: 1px;
         border-style: solid;
         border-right: 0;
@@ -195,7 +196,7 @@
         width: 343px;
         align-content: auto;
         padding: 20px 0 0;
-        margin-top: -54px;
+        margin-top: -54px; */
     }
 
     .header__username {
