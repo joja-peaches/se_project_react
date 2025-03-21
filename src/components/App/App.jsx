@@ -14,6 +14,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
 import AddItemModal from "./AddItemModal/AddItemModal";
 import { getItems, addItem, deleteItem } from "../../utils/api";
+import HamburgerModal from "./HamburgerModal/HamburgerModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -42,6 +43,10 @@ function App() {
     setActiveModal("create");
   };
 
+  const handleHamburgerClick = () => {
+    setActiveModal("hamburger");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -58,14 +63,14 @@ function App() {
 
   const handleDeleteItem = () => {
     deleteItem(selectedCard._id)
-    .then(() => {
-      const filteredArray = clothingItems.filter(
-        (item) => item !== selectedCard
-      );
-      setClothingItems(filteredArray);
-      closeActiveModal();
-    })
-    .catch(console.error)
+      .then(() => {
+        const filteredArray = clothingItems.filter(
+          (item) => item !== selectedCard
+        );
+        setClothingItems(filteredArray);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -91,7 +96,11 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            handleHamburgerClick={handleHamburgerClick}
+            weatherData={weatherData}
+          />
           <Routes>
             <Route
               path="/"
@@ -111,6 +120,7 @@ function App() {
                   onCardClick={handleCardClick}
                   onAddCardClick={handleAddClick}
                   clothingItems={clothingItems}
+                  weatherData={weatherData}
                 />
               }
             />
@@ -125,6 +135,11 @@ function App() {
             card={selectedCard}
             onClose={closeActiveModal}
             onDelete={handleDeleteItem}
+          />
+          <HamburgerModal
+            isOpen={activeModal === "hamburger"}
+            onClose={closeActiveModal}
+            handleAddClick={handleAddClick}
           />
           <Footer />
         </div>

@@ -59,26 +59,36 @@
 }
 
 @media screen and (max-width: 480px) {
+    .modal {
+        
+    }
+
     .modal__content {
-        max-width: 96vw;
-        max-height: 60vh;
+        max-width: 343px;
+        max-height: 463px;
+    }
+
+    .modal__close-item-modal {
+        background-image: url(../../../assets/images/close-black.png);
+        top: 21.21px;
+        right: 21.24px;
+        background-color: none;
     }
 
     .modal__image {
-        max-width: 96vw;
-        max-height: 96vw;
-        
+        max-width: 343px;
+        max-height: 343px;
     }
 
     .modal__caption {
         font-size: 18px;
         line-height: 20px;
-        padding: 20px 0 0 24px;
+        padding: 20px 0 0 20px;
     }
     
     .modal__weather {
         font-size: 18px;
         line-height: 20px;
-        padding: 12px 0 0 24px;
+        padding: 12px 0 0 20px;
     }    
 }

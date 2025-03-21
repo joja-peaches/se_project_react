@@ -4,7 +4,7 @@ import logo from "../../../assets/images/logo.svg";
 import avatar from "../../../assets/images/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({ handleAddClick, handleHamburgerClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -19,9 +19,9 @@ function Header({ handleAddClick, weatherData }) {
         <p className="header__date-and-location">
           {currentDate}, {weatherData.city}
         </p>
-        <div className="header__hamburger">
-          <hr className="header__line"/>
-          <hr className="header__line"/>
+        <div className="header__hamburger" onClick={handleHamburgerClick}>
+          <hr className="header__line" />
+          <hr className="header__line" />
         </div>
       </div>
       <div className="header__user-container">
@@ -42,16 +42,6 @@ function Header({ handleAddClick, weatherData }) {
               className="header__avatar"
             />
           </Link>
-          {/* <img
-              src={avatar}
-              alt="Terrence Tegegne"
-              className="header__avatar-mobile"
-            />
-          <div className="header__mobile-text">
-            <p className="header__username-mobile">Terrence Tegegne</p>
-            <p className="header__profile-text">Change profile data</p>
-            <p className="header__profile-text">Log out</p>
-          </div> */}
         </div>
       </div>
     </header>

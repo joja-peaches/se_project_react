@@ -1,9 +1,18 @@
 .weather-card {
+    margin: 0;
+}   
+
+.weather-card__container {
     position: relative;
     display: flex;
     height: 80px;
     border-radius: 12px;
     overflow: hidden;
+}
+
+.weather-card__date-and-location {
+    display: none;
+    height: 0px;
 }
 
 .weather-card__temp {
@@ -27,7 +36,24 @@
 
 @media screen and (max-width: 480px) {
     .weather-card {
-        max-width: 96vw;
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        max-width: 343px;
+        margin: 32px auto 0;
+    }    
+
+    .weather-card__container {
         margin: 0 auto;
+    }
+
+    .weather-card__date-and-location {
+        display: block;
+        font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 40px; 
+        margin: 0;
+        height: 24px;
     }
 }

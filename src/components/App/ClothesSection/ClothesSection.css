@@ -39,5 +39,10 @@
 @media screen and (max-width: 480px) {
     .clothes-section {
         padding-top: 20px;
+        width: 375px;
+    }
+
+    .clothes-section__items {
+        gap: 15px;
     }
 }

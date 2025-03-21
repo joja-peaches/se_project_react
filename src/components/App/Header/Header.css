@@ -25,6 +25,7 @@
     font-size: 20px;
     line-height: 40px; 
     margin: 0;
+    visibility: visible;
 }
 
 .header__hamburger {
@@ -81,28 +82,6 @@
     column-gap: 12px;
 }
 
-.header__username-mobile {
-    visibility: hidden;
-    /* height: 0;
-    width: 0; */
-}
-
-.header__avatar-mobile {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-    padding: 0;
-}
-
-.header__profile-text {
-    visibility: hidden;
-}
-
-.header__mobile-text {
-    height: 0;
-    width: 0;
-}
-
 @media screen and (max-width: 480px) {
     .header {
         width: 343px;
@@ -117,10 +96,6 @@
         align-items: center;
         padding: 20px 16px 22px;
     }
-
-    .header__logo {
-        padding-right: 12px;
-    }
     
     .header__avatar {
         width: 56px;
@@ -129,16 +104,10 @@
         visibility: hidden;
     };
 
-    .header__avatar-mobile {
-        width: 56px;
-        height: 56px;
-        padding: 0 20px 0 0;
-        visibility: visible;
-    }
-
     .header__date-and-location {
-        font-size: 16px;
-        line-height: 20px; 
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
     }
 
     .header__hamburger {
@@ -185,19 +154,6 @@
         display: block;
         margin: 0;
     }
-    
-    .header__profile-container {
-        /* border-top: 1px;
-        border-bottom: 1px;
-        border-style: solid;
-        border-right: 0;
-        border-left: 0;
-        border-color: rgb(0, 0, 0, .3);
-        width: 343px;
-        align-content: auto;
-        padding: 20px 0 0;
-        margin-top: -54px; */
-    }
 
     .header__username {
         font-size: 24px;
@@ -206,32 +162,5 @@
         padding-bottom: 4px;
         width: 0;
         height: 0;
-    }
-    
-    .header__mobile-text {
-        display: flex;
-        flex-direction: column;
-        row-gap: 8px;
-        height: 100px;
-        width: 267px;
-    }
-
-    .header__username-mobile {
-        font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
-        font-weight: 700;
-        margin: 0;
-        font-size: 24px;
-        line-height: 100%;
-        visibility: visible;
-    }
-
-    .header__profile-text {
-        font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 100%;
-        color: rgb(0, 0, 0, .6);
-        visibility: visible;
-        margin: 0;
     }
 }

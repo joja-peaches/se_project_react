@@ -6,6 +6,10 @@ import { useContext } from "react";
 import CurrentTemperatureUnitContext from "../../../contexts/CurrentTemperaturUnitContext";
 
 function WeatherCard({ weatherData }) {
+  const currentDate = new Date().toLocaleString("default", {
+    month: "long",
+    day: "numeric",
+  });
   const {currentTemperatureUnit} = useContext(CurrentTemperatureUnitContext);
   const filteredOptions = weatherOptions.filter((option) => {
 
@@ -21,12 +25,17 @@ function WeatherCard({ weatherData }) {
 
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">{weatherData.temp[currentTemperatureUnit]}&deg; {currentTemperatureUnit}</p>
-      <img
-        src={weatherOptionUrl}
-        alt={`Card showing ${weatherOptionDay} ${weatherOptionCondition}`}
-        className="weather-card__image"
-      />
+      <p className="weather-card__date-and-location">
+        {currentDate}, {weatherData.city}
+      </p>
+      <section className="weather-card__container">
+        <p className="weather-card__temp">{weatherData.temp[currentTemperatureUnit]}&deg; {currentTemperatureUnit}</p>
+        <img
+          src={weatherOptionUrl}
+          alt={`Card showing ${weatherOptionDay} ${weatherOptionCondition}`}
+          className="weather-card__image"
+        />
+      </section>
     </section>
   );
 }

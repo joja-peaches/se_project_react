@@ -1,5 +1,13 @@
 .sidebar {
+    position: relative;
+}
+
+.sidebar__container {
     display: flex;
+}
+
+.sidebar__date-and-location {
+    display: none;
 }
 
 .sidebar__avatar {
@@ -25,7 +33,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    .sidebar {
+    .sidebar__container {
         border-top: 1px;
         border-bottom: 1px;
         border-style: solid;
@@ -36,6 +44,19 @@
         align-content: auto;
         padding: 20px 0 0;
     }
+
+    .sidebar__date-and-location {
+        display: block;
+        position: absolute;
+        font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        top: -50px;
+        left: 101px;
+        margin: 0;
+    }
+
     .sidebar__avatar {
         width: 56px;
         height: 56px;

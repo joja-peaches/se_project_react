@@ -3,11 +3,33 @@ import "./HamburgerModal.css";
 import avatar from "../../../assets/images/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
-function HamburgerModal() {
+function HamburgerModal({ isOpen, onClose, handleAddClick }) {
   return (
-    <>
-      <p>ham</p>
-    </>
+    <div
+      className={`modal modal_type_hamburger ${isOpen ? "modal_opened" : ""}`}
+    >
+      <div className="modal__container">
+      <button
+          onClick={onClose}
+          type="button"
+          className="modal__close modal__close-type-hamburger"
+        />
+        <Link to="/profile" className="modal__link">
+          <p className="modal__username">Terrence Tegegne</p>
+          <img src={avatar} alt="Terrence Tegegne" className="modal__avatar" />
+        </Link>
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="modal__add-clothes-btn"
+        >
+          + Add clothes
+        </button>
+        <ToggleSwitch 
+          isOpen={isOpen}
+        />
+      </div>
+    </div>
   );
 }
 

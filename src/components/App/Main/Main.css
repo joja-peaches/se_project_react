@@ -3,6 +3,7 @@
     padding: 40px 0 34px;
     font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
     font-size: 20px;
+    font-weight: 700;
     line-height: 24.8px;
 }
 
@@ -18,15 +19,15 @@
 
 @media screen and (max-width: 480px) {
     .cards__text {
-        padding: 4vh 2vw 2vh;
+        padding: 32px 0 20px;
         text-align: center;
-        font-size: 18px;
-        line-height: 20px;
+        line-height: 100%;
     }
     
     .cards__list {
         flex-flow: row wrap;
         gap: 15px;
         width: 343px;
+        margin: 0 auto;
     }
 }
