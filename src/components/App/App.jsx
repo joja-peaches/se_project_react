@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// NEW BRANCH PROJECT 11
 import "./App.css";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
