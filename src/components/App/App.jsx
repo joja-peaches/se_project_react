@@ -46,18 +46,30 @@ function App() {
     setActiveModal("hamburger");
   };
 
+  useEffect(() => {
+    if (!activeModal) return;
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", handleEscClose);
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
 
   const handleAddItemModalSubmit = (name, imgUrl, weather) => {
-    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    addItem(name, imgUrl, weather);
-    setClothingItems((clothingItems) => [
-      { name, imageUrl: imgUrl, weather, _id: newId },
-      ...clothingItems,
-    ]);
-    closeActiveModal();
+    addItem(name, imgUrl, weather)
+      .then((newItem) => {
+        setClothingItems((clothingItems) => [newItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   const handleDeleteItem = () => {
@@ -99,6 +111,7 @@ function App() {
             handleAddClick={handleAddClick}
             handleHamburgerClick={handleHamburgerClick}
             weatherData={weatherData}
+            isOpen={activeModal === "hamburger"}
           />
           <Routes>
             <Route
@@ -107,7 +120,6 @@ function App() {
                 <Main
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
-                  currentTemperatureUnit={currentTemperatureUnit}
                   clothingItems={clothingItems}
                 />
               }
@@ -138,7 +150,7 @@ function App() {
           <HamburgerModal
             isOpen={activeModal === "hamburger"}
             onClose={closeActiveModal}
-            handleAddClick={handleAddClick}
+            handleAddClick={handleAddClick}  
           />
           <Footer />
         </div>

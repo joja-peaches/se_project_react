@@ -29,4 +29,4 @@ function deleteItem(_id) {
   });
 }
 
-export { getItems, addItem, deleteItem };
+export { getItems, addItem, deleteItem, _checkResponse };

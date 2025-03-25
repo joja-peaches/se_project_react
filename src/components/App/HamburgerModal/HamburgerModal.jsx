@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./HamburgerModal.css";
 import avatar from "../../../assets/images/avatar.png";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import HamburgerSwitch from "../HamburgerSwitch/HamburgerSwitch";
 
 function HamburgerModal({ isOpen, onClose, handleAddClick }) {
   return (
@@ -25,7 +25,7 @@ function HamburgerModal({ isOpen, onClose, handleAddClick }) {
         >
           + Add clothes
         </button>
-        <ToggleSwitch 
+        <HamburgerSwitch 
           isOpen={isOpen}
         />
       </div>

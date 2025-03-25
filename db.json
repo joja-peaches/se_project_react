@@ -95,6 +95,120 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "Bootsh",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 46
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 47
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpght",
+      "weather": "warm",
+      "_id": 48
+    },
+    {
+      "name": "Thing",
+      "imageUrl": "https://iili.io/dsee3du.jpg",
+      "weather": "warm",
+      "_id": 55
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 56
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 57
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 58
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 59
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 60
+    },
+    {
+      "name": "Booga",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 61
+    },
+    {
+      "name": "Booga Boo",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 62
+    },
+    {
+      "name": "Rah",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 63
+    },
+    {
+      "name": "Open",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 64
+    },
+    {
+      "name": "Open",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 65
+    },
+    {
+      "name": "Boo",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 66
+    },
+    {
+      "name": "Booooots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 67
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 68
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 69
+    },
+    {
+      "name": "Boots",
+      "imageUrl": "https://i.ibb.co/xKYw94f8/boots3.jpg",
+      "weather": "warm",
+      "_id": 70
     }
   ]
 }
