@@ -1,6 +1,8 @@
 import "./ModalWithForm.css";
+import useModalClose from "../../../hooks/useModalClose";
 
 function ModalWithForm({ children, buttonText, title, name, onClose, isOpen, onSubmit }) {
+  {useModalClose(isOpen, onClose)}
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>
       <form className="modal__form" onSubmit={onSubmit}>

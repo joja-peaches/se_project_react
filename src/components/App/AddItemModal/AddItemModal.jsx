@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useEffect, useState } from "react";
+import { useForm } from "../../../hooks/useForm";
 
 export default function AddItemModal({
   onClose,
@@ -14,6 +15,8 @@ export default function AddItemModal({
   const handleNameChange = (e) => setName(e.target.value);
   const handleImgUrlChange = (e) => setImgUrl(e.target.value);
   const handleWeatherChange = (e) => setWeather(e.target.value);
+
+  // const {values, handleChange, setValues} = useForm({});
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -46,6 +49,7 @@ export default function AddItemModal({
           maxLength="40"
           required
           onChange={handleNameChange}
+          // onChange={handleChange}
           value={name}
         />
       </label>
