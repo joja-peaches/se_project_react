@@ -6,14 +6,17 @@ import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Profile from "./Profile/Profile";
 import ItemModal from "./ItemModal/ItemModal";
+import AddItemModal from "./AddItemModal/AddItemModal";
+import HamburgerModal from "./HamburgerModal/HamburgerModal";
+import RegisterModal from "./RegisterModal/RegisterModal";
+import LoginModal from "./LoginModal/LoginModal";
 import Footer from "./Footer/Footer";
 
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
-import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
-import AddItemModal from "./AddItemModal/AddItemModal";
 import { getItems, addItem, deleteItem } from "../../utils/api";
-import HamburgerModal from "./HamburgerModal/HamburgerModal";
+
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -46,6 +49,14 @@ function App() {
     setActiveModal("hamburger");
   };
 
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const handleRegisterClick = () => {
+    setActiveModal("register");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -69,6 +80,14 @@ function App() {
         closeActiveModal();
       })
       .catch(console.error);
+  };
+
+  const handleRegisterSubmit = () => {
+    console.log("Register Submit");
+  };
+
+  const handleLoginSubmit = () => {
+    console.log("Submit Login");
   };
 
   useEffect(() => {
@@ -97,6 +116,8 @@ function App() {
           <Header
             handleAddClick={handleAddClick}
             handleHamburgerClick={handleHamburgerClick}
+            handleRegisterClick={handleRegisterClick}
+            handleLoginClick={handleLoginClick}
             weatherData={weatherData}
             isOpen={activeModal === "hamburger"}
           />
@@ -137,7 +158,17 @@ function App() {
           <HamburgerModal
             isOpen={activeModal === "hamburger"}
             onClose={closeActiveModal}
-            handleAddClick={handleAddClick}  
+            handleAddClick={handleAddClick}
+          />
+          <RegisterModal
+            isOpen={activeModal === "register"}
+            onClose={closeActiveModal}
+            onRegisterSubmit={handleRegisterSubmit}
+          />
+          <LoginModal
+            isOpen={activeModal === "login"}
+            onClose={closeActiveModal}
+            onLoginSubmit={handleLoginSubmit}
           />
           <Footer />
         </div>

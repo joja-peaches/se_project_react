@@ -18,7 +18,8 @@
 
 .modal__form {
     width: 496px;
-    height: 436px;
+    min-height: 200px;
+    max-height: 80vh;
     border: solid;
     border-width: 1px;
     border-radius: 20px;
@@ -56,7 +57,7 @@
 }
 
 .modal__legend {
-    padding-bottom: 12px;
+    padding: 24px 0 12px;
 }
 
 .modal__label {
@@ -64,6 +65,10 @@
     font-size: 16px;
     line-height: 20px;
     width: 440px;
+}
+
+.modal__label:last-of-type .modal__input {
+    margin-bottom: 0;
 }
 
 .modal__label_type_radio {

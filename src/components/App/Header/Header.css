@@ -41,6 +41,26 @@
     align-items: center;
 }
 
+.header__register {
+    font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px; 
+    margin: 0;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.header__login {
+    font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px; 
+    margin: 0;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
 .header__add-clothes-btn {
     font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
     font-weight: 700;

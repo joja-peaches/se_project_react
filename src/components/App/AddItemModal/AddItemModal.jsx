@@ -45,8 +45,7 @@ export default function AddItemModal({
           minLength="2"
           maxLength="40"
           required
-          onChange={handleNameChange}
-          // onChange={handleChange}
+          onChange={handleNameChange} 
           value={name}
         />
       </label>
