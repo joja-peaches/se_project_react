@@ -11,11 +11,48 @@ function Header({
   handleLoginClick,
   weatherData,
   isOpen,
+  currentUser,
 }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+
+  let elementsToRender;
+  if (!currentUser) {
+    elementsToRender = (
+      <>
+        <p className="header__register" onClick={handleRegisterClick}>
+          Sign Up
+        </p>
+        <p className="header__login" onClick={handleLoginClick}>
+          Log In
+        </p>
+      </>
+    );
+  } else {
+    elementsToRender = (
+      <>
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          + Add clothes
+        </button>
+        <div className="header__profile-container">
+          <Link to="/profile" className="header__link">
+            <p className="header__username">Terrence Tegegne</p>
+            <img
+              src={avatar}
+              alt="Terrence Tegegne"
+              className="header__avatar"
+            />
+          </Link>
+        </div>
+      </>
+    );
+  }
 
   return (
     <header className="header">
@@ -33,29 +70,7 @@ function Header({
       </div>
       <div className="header__user-container">
         <ToggleSwitch />
-        <button
-          onClick={handleAddClick}
-          type="button"
-          className="header__add-clothes-btn"
-        >
-          + Add clothes
-        </button>
-        <div className="header__profile-container">
-          <Link to="/profile" className="header__link">
-            <p className="header__username">Terrence Tegegne</p>
-            <img
-              src={avatar}
-              alt="Terrence Tegegne"
-              className="header__avatar"
-            />
-          </Link>
-          <p className="header__register" onClick={handleRegisterClick}>
-            Sign Up
-          </p>
-          <p className="header__login" onClick={handleLoginClick}>
-            Log In
-          </p>
-        </div>
+        {elementsToRender}
       </div>
     </header>
   );

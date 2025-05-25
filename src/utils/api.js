@@ -1,5 +1,5 @@
 const baseUrl = "http://localhost:3001";
-const baseHeaders = { "content-type": "application/json" };
+const baseHeaders = { "Content-Type": "application/json" };
 
 function _checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Error ${res.status}`);
@@ -7,26 +7,6 @@ function _checkResponse(res) {
 
 function _request(url, options) {
   return fetch(url, options).then(_checkResponse);
-}
-
-function signUp() {
-  return _request(`${baseUrl}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, avatar, email, password }),
-  });
-}
-
-function signIn() {
-  return _request(`${baseUrl}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  });
 }
 
 function getItems() {
@@ -48,4 +28,4 @@ function deleteItem(_id) {
   });
 }
 
-export { signUp, signIn, getItems, addItem, deleteItem, _checkResponse };
+export { getItems, addItem, deleteItem, _checkResponse };
