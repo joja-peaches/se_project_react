@@ -47,12 +47,6 @@ export default function LoginModal({
     setIncorrectPassword(false);
   };
 
-  const isValid = () => {
-    if (inputValidation.email && inputValidation.password) {
-      return true;
-    }
-  };
-
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     onLoginSubmit(email, password)
@@ -99,8 +93,8 @@ export default function LoginModal({
           value={email}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
-        Password* <br />
+      <label htmlFor="password" className={`modal__label ${incorrectPassword ? "modal__input-error" : ""}`}>
+        {incorrectPassword ? "Incorrect password" : "Password*"}<br />
         <input
           type="password"
           id="password"

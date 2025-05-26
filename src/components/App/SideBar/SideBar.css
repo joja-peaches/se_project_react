@@ -4,6 +4,7 @@
 
 .sidebar__container {
     display: flex;
+    flex-direction: column;
 }
 
 .sidebar__date-and-location {
@@ -13,11 +14,34 @@
 .sidebar__avatar {
     width: 56px;
     height: 56px;
-    padding: 0 16px 0 0;
+    border-radius: 50%;
 }
 
-.sidebar__mobile {
-    
+.sidebar__avatar-placeholder {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #808080;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.sidebar__mobile-user {
+    display: flex;
+    column-gap: 16px;
+    padding: 0 0 24px 0;
+}
+
+.sidebar__mobile-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
 }
 
 .sidebar__username {
@@ -25,11 +49,22 @@
     font-size: 20px;
     line-height: 100%;
     font-weight: 700;
+    letter-spacing: 0%;
     margin: 16px 0 0;
 }
 
 .sidebar__profile-text {
-    visibility: hidden;
+    font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 700;
+    margin: 0;
+    cursor: pointer;
+}
+
+.sidebar__profile-logout {
+    text-decoration: none;
+    color: #000;
 }
 
 @media screen and (max-width: 480px) {
@@ -61,6 +96,11 @@
         width: 56px;
         height: 56px;
         padding: 0 20px 0 0;
+    }
+
+    .sidebar__avatar-placeholder {
+        width: 56px;
+        height: 56px;
     }
 
     .sidebar__mobile {

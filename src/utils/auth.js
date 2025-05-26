@@ -25,21 +25,34 @@ function signIn(email, password) {
     headers: baseHeaders,
     body: JSON.stringify({ email, password }),
   }).then((res) => {
-    // localStorage.setItem("jwt", res.token);
     setToken(res.token);
     return res;
   });
 }
 
-function getUserInfo(token) {
+function getUserInfo() {
   return _request(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getToken()}`,
     },
   });
 }
 
-export { signUp, signIn, getUserInfo };
+function editProfile(name, avatar) {
+  return _request(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then((res) => {
+    return res;
+  });
+}
+
+export { signUp, signIn, getUserInfo, editProfile };

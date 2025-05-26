@@ -12,7 +12,7 @@ function ModalWithForm({
   loginText,
   handleRegisterClick,
   handleLoginClick,
-  isFormValid
+  isFormValid,
 }) {
   {
     useModalClose(isOpen, onClose);

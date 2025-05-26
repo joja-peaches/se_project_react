@@ -26,7 +26,7 @@ export default function RegisterModal({
     const isValidEmail =
       emailValue.includes("@") &&
       emailValue.length > 6 &&
-      emailValue.length < 20;
+      emailValue.length < 40;
     setInputValidation((prev) => ({
       ...prev,
       email: isValidEmail,
@@ -36,7 +36,7 @@ export default function RegisterModal({
   const handlePasswordChange = (e) => {
     const passwordValue = e.target.value;
     const isValidPassword =
-      passwordValue.length > 6 && passwordValue.length < 20;
+      passwordValue.length > 6 && passwordValue.length < 40;
     setInputValidation((prev) => ({
       ...prev,
       password: isValidPassword,

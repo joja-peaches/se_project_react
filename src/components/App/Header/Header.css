@@ -90,8 +90,24 @@
 .header__avatar {
     height: 40px;
     width: 40px;
+    border-radius: 50%;
     align-self: center;
     visibility: visible;
+}
+
+.header__avatar-placeholder {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #808080;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
 }
 
 .header__link {
@@ -123,6 +139,11 @@
         padding: 0 20px 0 0;
         visibility: hidden;
     };
+
+    .header__avatar-placeholder {
+        width: 56px;
+        height: 56px;
+    }
 
     .header__date-and-location {
         visibility: hidden;

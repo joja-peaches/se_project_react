@@ -10,13 +10,14 @@ import AddItemModal from "./AddItemModal/AddItemModal";
 import HamburgerModal from "./HamburgerModal/HamburgerModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
 import LoginModal from "./LoginModal/LoginModal";
+import EditProfileModal from "./EditProfileModal/EditProfileModal";
 import Footer from "./Footer/Footer";
 
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import { getItems, addItem, deleteItem } from "../../utils/api";
-import { signUp, signIn, getUserInfo } from "../../utils/auth";
-import { setToken, getToken } from "../../utils/token";
+import { signUp, signIn, getUserInfo, editProfile } from "../../utils/auth";
+import { getToken } from "../../utils/token";
 
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -62,6 +63,10 @@ function App() {
     setActiveModal("register");
   };
 
+  const handleEditProfileClick = () => {
+    setActiveModal("edit");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -87,12 +92,6 @@ function App() {
       .catch(console.error);
   };
 
-  // const enableSubmitButton = (inputValidation) => {
-  //   if (inputValidation.Object.values()) {
-
-  //   }
-  // };
-
   const handleRegisterSubmit = (email, password, name, avatar) => {
     signUp(email, password, name, avatar)
       .then((res) => {
@@ -108,28 +107,47 @@ function App() {
       .catch(console.error);
   };
 
-  const handleLogin = ({ email, password }) => {
-    if (!email || !password) {
-      return;
-    }
-    handleLoginSubmit(email, password).catch((err) => console.log(err));
-  };
-
   const handleLoginSubmit = (email, password) => {
     return signIn(email, password)
       .then((res) => {
-        setCurrentUser({
-          email: email,
+        const token = getToken();
+        return getUserInfo(token);
+      })
+      .then((userInfo) => {
+        setCurrentUser(userInfo);
+        setIsLoggedIn(true);
+        closeActiveModal();
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        return Promise.reject(err);
+      });
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("jwt");
+    setCurrentUser(null);
+    setIsLoggedIn(false);
+  };
+
+  const handleEditProfileSubmit = (name, avatar) => {
+    return editProfile(name, avatar)
+      .then((res) => {
+        setCurrentUser((prev) => ({
+          ...prev,
           name: res.name,
           avatar: res.avatar,
-        });
-        setIsLoggedIn(true);
+        }));
         closeActiveModal();
         return res;
       })
       .catch((err) => {
         return Promise.reject(err);
       });
+  };
+
+  const getInitial = (name) => {
+    return name ? name.charAt(0).toUpperCase() : "";
   };
 
   useEffect(() => {
@@ -180,6 +198,7 @@ function App() {
               weatherData={weatherData}
               isOpen={activeModal === "hamburger"}
               currentUser={currentUser}
+              getInitial={getInitial}
             />
             <Routes>
               <Route
@@ -195,12 +214,20 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    onCardClick={handleCardClick}
-                    onAddCardClick={handleAddClick}
-                    clothingItems={clothingItems}
-                    weatherData={weatherData}
-                  />
+                  isLoggedIn ? (
+                    <Profile
+                      onCardClick={handleCardClick}
+                      onAddCardClick={handleAddClick}
+                      clothingItems={clothingItems}
+                      weatherData={weatherData}
+                      currentUser={currentUser}
+                      getInitial={getInitial}
+                      onEditProfileClick={handleEditProfileClick}
+                      onLogOut={handleLogOut}
+                    />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
                 }
               />
               <Route
@@ -237,7 +264,6 @@ function App() {
               handleRegisterClick={handleRegisterClick}
               handleLoginClick={handleLoginClick}
               setIsLoggedIn={setIsLoggedIn}
-              // enableSubmitButton={enableSubmitButton}
             />
             <LoginModal
               isOpen={activeModal === "login"}
@@ -246,7 +272,11 @@ function App() {
               handleRegisterClick={handleRegisterClick}
               handleLoginClick={handleLoginClick}
               setIsLoggedIn={setIsLoggedIn}
-              // enableSubmitButton={enableSubmitButton}
+            />
+            <EditProfileModal
+              isOpen={activeModal === "edit"}
+              onClose={closeActiveModal}
+              onEditProfileSubmit={handleEditProfileSubmit}
             />
             <Footer />
           </div>
