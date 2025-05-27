@@ -1,3 +1,5 @@
+import { getToken } from "./token";
+
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
 
@@ -16,7 +18,11 @@ function getItems() {
 function addItem(name, imageUrl, weather) {
   return _request(`${baseUrl}/items`, {
     method: "POST",
-    headers: baseHeaders,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
     body: JSON.stringify({ name, imageUrl, weather }),
   });
 }
@@ -28,4 +34,35 @@ function deleteItem(_id) {
   });
 }
 
-export { getItems, addItem, deleteItem, _checkResponse };
+function addCardLike(_id) {
+  return _request(`${baseUrl}/items/${_id}/likes`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify({ isLiked: true }),
+  });
+}
+
+function removeCardLike(_id) {
+    return _request(`${baseUrl}/items/${_id}/likes`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify({ isLiked: false }),
+  });
+}
+
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  _checkResponse,
+  addCardLike,
+  removeCardLike,
+};

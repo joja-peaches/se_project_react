@@ -6,14 +6,50 @@ export default function AddItemModal({
   onClose,
   isOpen,
   onAddItemModalSubmit,
+  isFormValid,
 }) {
   const [name, setName] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [weather, setWeather] = useState("");
+  const [inputValidation, setInputValidation] = useState({
+    name: false,
+    imgUrl: false,
+    weather: null,
+  });
 
-  const handleNameChange = (e) => setName(e.target.value);
-  const handleImgUrlChange = (e) => setImgUrl(e.target.value);
-  const handleWeatherChange = (e) => setWeather(e.target.value);
+  const handleNameChange = (e) => {
+    const nameValue = e.target.value;
+    const isValidName = nameValue.length > 2 && nameValue.length < 50;
+    setInputValidation((prev) => ({
+      ...prev,
+      name: isValidName,
+    }));
+    setName(nameValue);
+  };
+
+  const handleImgUrlChange = (e) => {
+    const imgUrlValue = e.target.value;
+    const isValidImgUrl =
+      imgUrlValue.includes("http://") || imgUrlValue.includes("https://");
+    setInputValidation((prev) => ({
+      ...prev,
+      imgUrl: isValidImgUrl,
+    }));
+    setImgUrl(imgUrlValue);
+  };
+
+  const handleWeatherChange = (e) => {
+    const weatherValue = e.target.value;
+    const isValidWeather =
+      weatherValue.includes("hot") ||
+      weatherValue.includes("warm") ||
+      weatherValue.includes("cold");
+    setInputValidation((prev) => ({
+      ...prev,
+      weather: isValidWeather,
+    }));
+    setWeather(weatherValue);
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -34,6 +70,9 @@ export default function AddItemModal({
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      isFormValid={
+        inputValidation.name && inputValidation.imgUrl && inputValidation.weather
+      }
     >
       <label htmlFor="name" className="modal__label">
         Name <br />
@@ -45,7 +84,7 @@ export default function AddItemModal({
           minLength="2"
           maxLength="40"
           required
-          onChange={handleNameChange} 
+          onChange={handleNameChange}
           value={name}
         />
       </label>

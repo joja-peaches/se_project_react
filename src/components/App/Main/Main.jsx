@@ -4,14 +4,19 @@ import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../../contexts/CurrentTemperaturUnitContext";
 import "./Main.css";
 
-function Main({ weatherData, handleCardClick, clothingItems }) {
-  const {currentTemperatureUnit} = useContext(CurrentTemperatureUnitContext);
+function Main({ weatherData, handleCardClick, clothingItems, onLikeClick, isLoggedIn, currentUser }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  console.log("All items:", clothingItems);
+  clothingItems.forEach((item, index) => {
+    console.log(`Item ${index}:`, item.name, item.imageUrl);
+  });
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp[currentTemperatureUnit]}&deg; {currentTemperatureUnit} / You may want to wear:
+          Today is {weatherData.temp[currentTemperatureUnit]}&deg;{" "}
+          {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">
           {clothingItems
@@ -24,6 +29,9 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
                   key={item._id}
                   item={item}
                   onCardClick={handleCardClick}
+                  onLikeClick={onLikeClick}
+                  isLoggedIn={isLoggedIn}
+                  currentUser={currentUser}
                 />
               );
             })}

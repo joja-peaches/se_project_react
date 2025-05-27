@@ -8,16 +8,35 @@
  
 }
 
+.card__title-container {
+    position: absolute;
+    top: 15px;
+    margin: 0;
+    padding: 2px 12px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+}
+
 .card__title {
     font-family: CabinetGrotesk, Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 20px;
     color: rgb(0, 0, 0, .6);
     background-color: #fff;
-    position: absolute;
-    top: 15px;
     margin: 0;
-    padding: 2px 12px;
+}
+
+.card__like-button {
+    height: 15px;
+    width: 18px;
+    cursor: pointer;
+    visibility: visible;
+}
+
+.card__like-invisible {
+    visibility: hidden;
 }
 
 .card__image {

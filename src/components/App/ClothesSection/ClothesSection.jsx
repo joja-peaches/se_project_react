@@ -1,7 +1,7 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-function ClothesSection({onCardClick, onAddCardClick, clothingItems }) {
+function ClothesSection({onCardClick, onAddCardClick, clothingItems, isLoggedIn }) {
   return (
     <div className="clothes-section">
         <div className="clothes-section__title">
@@ -16,6 +16,7 @@ function ClothesSection({onCardClick, onAddCardClick, clothingItems }) {
                   key={item._id}
                   item={item}
                   onCardClick={onCardClick}
+                  isLoggedIn={isLoggedIn}
                 />
               );
             })}

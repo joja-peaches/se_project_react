@@ -71,8 +71,10 @@ function App() {
     setActiveModal("");
   };
 
-  const handleAddItemModalSubmit = (name, imgUrl, weather) => {
-    addItem(name, imgUrl, weather)
+  const handleAddItemModalSubmit = (name, imageUrl, weather) => {
+    const token = getToken();
+    console.log(token);
+    addItem(name, imageUrl, weather)
       .then((newItem) => {
         setClothingItems((clothingItems) => [newItem, ...clothingItems]);
         closeActiveModal();
@@ -146,6 +148,27 @@ function App() {
       });
   };
 
+  const handleLikeClick = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    !isLiked
+      ? api
+          .addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : api
+          .removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
   const getInitial = (name) => {
     return name ? name.charAt(0).toUpperCase() : "";
   };
@@ -208,6 +231,9 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onLikeClick={handleLikeClick}
+                    isLoggedIn={isLoggedIn}
+                    currentUser={currentUser}
                   />
                 }
               />
@@ -224,6 +250,7 @@ function App() {
                       getInitial={getInitial}
                       onEditProfileClick={handleEditProfileClick}
                       onLogOut={handleLogOut}
+                      isLoggedIn={isLoggedIn}
                     />
                   ) : (
                     <Navigate to="/" replace />

@@ -37,10 +37,14 @@ export default function EditProfileModal({
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    onEditProfileSubmit(name, avatar)
+    onEditProfileSubmit(name, avatar || undefined )
       .then(() => {
         setName("Name");
         setAvatar("Avatar");
+        setInputValidation({
+          name: false,
+          avatar: true
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -54,7 +58,9 @@ export default function EditProfileModal({
       buttonText="Save changes"
       onClose={onClose}
       isOpen={isOpen}
-      isFormValid={inputValidation.name && inputValidation.avatar}
+      isFormValid={
+        inputValidation.name && (avatar === "" || inputValidation.avatar)
+      }
       onSubmit={handleEditSubmit}
     >
       <label htmlFor="name" className="modal__label">
