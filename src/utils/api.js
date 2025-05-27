@@ -12,7 +12,12 @@ function _request(url, options) {
 }
 
 function getItems() {
-  return _request(`${baseUrl}/items`, { headers: baseHeaders });
+  return _request(`${baseUrl}/items`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
 }
 
 function addItem(name, imageUrl, weather) {
@@ -30,31 +35,33 @@ function addItem(name, imageUrl, weather) {
 function deleteItem(_id) {
   return _request(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
-    headers: baseHeaders,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getToken()}`,
+    },
   });
 }
 
 function addCardLike(_id) {
   return _request(`${baseUrl}/items/${_id}/likes`, {
-    method: "PATCH",
+    method: "PUT",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${getToken()}`,
     },
-    body: JSON.stringify({ isLiked: true }),
   });
 }
 
 function removeCardLike(_id) {
-    return _request(`${baseUrl}/items/${_id}/likes`, {
-    method: "PATCH",
+  return _request(`${baseUrl}/items/${_id}/likes`, {
+    method: "DELETE",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${getToken()}`,
     },
-    body: JSON.stringify({ isLiked: false }),
   });
 }
 

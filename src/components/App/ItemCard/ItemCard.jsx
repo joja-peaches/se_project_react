@@ -8,13 +8,14 @@ function ItemCard({ item, onCardClick, onLikeClick, isLoggedIn, currentUser }) {
     onCardClick(item);
   };
 
-  const [isLiked, setIsLiked] = useState(false);
+  const currentUserId = currentUser ? currentUser._id : null;
+  const [isLiked, setIsLiked] = useState(item.likes.includes(currentUserId));
 
   const handleLike = () => {
     const itemId = item._id;
     const updatedIsLiked = !isLiked;
     setIsLiked(updatedIsLiked);
-    onLikeClick({ id: itemId, isLiked: updatedIsLiked });
+    onLikeClick({ id: itemId, isLiked });
   };
 
   return (

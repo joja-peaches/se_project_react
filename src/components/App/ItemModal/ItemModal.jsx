@@ -1,12 +1,12 @@
 import "./ItemModal.css";
 import useModalClose from "../../../hooks/useModalClose";
 
-function ItemModal({ isOpen, onClose, card, onDelete }) {
-  {useModalClose(isOpen, onClose)}
+function ItemModal({ isOpen, onClose, card, onDelete, isLoggedIn }) {
+  {
+    useModalClose(isOpen, onClose);
+  }
   return (
-    <div
-      className={`modal modal_type_image ${isOpen ? "modal_opened" : ""}`}
-    >
+    <div className={`modal modal_type_image ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_image">
         <button
           onClick={onClose}
@@ -19,7 +19,13 @@ function ItemModal({ isOpen, onClose, card, onDelete }) {
             <h2 className="modal__caption">{card.name}</h2>
             <p className="modal__weather">Weather: {card.weather}</p>
           </div>
-          <button onClick={onDelete} className="modal__delete-btn">Delete item</button>
+          {isLoggedIn ? (
+            <button onClick={onDelete} className="modal__delete-btn">
+              Delete item
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

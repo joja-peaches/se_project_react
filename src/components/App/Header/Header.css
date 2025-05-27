@@ -93,6 +93,7 @@
     border-radius: 50%;
     align-self: center;
     visibility: visible;
+    object-fit: cover;
 }
 
 .header__avatar-placeholder {

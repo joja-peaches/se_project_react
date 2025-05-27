@@ -2,10 +2,21 @@ import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 
-function Profile({onCardClick, onAddCardClick, clothingItems, weatherData, currentUser, getInitial, onEditProfileClick, onLogOut, isLoggedIn}) {
+function Profile({
+  onCardClick,
+  onAddCardClick,
+  clothingItems,
+  weatherData,
+  currentUser,
+  getInitial,
+  onEditProfileClick,
+  onLogOut,
+  isLoggedIn,
+  onLikeClick,
+}) {
   return (
     <div className="profile">
-      <SideBar 
+      <SideBar
         weatherData={weatherData}
         currentUser={currentUser}
         getInitial={getInitial}
@@ -17,6 +28,8 @@ function Profile({onCardClick, onAddCardClick, clothingItems, weatherData, curre
         onAddCardClick={onAddCardClick}
         clothingItems={clothingItems}
         isLoggedIn={isLoggedIn}
+        onLikeClick={onLikeClick}
+        currentUser={currentUser}
       />
     </div>
   );

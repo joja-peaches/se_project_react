@@ -15,7 +15,13 @@ import Footer from "./Footer/Footer";
 
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
-import { getItems, addItem, deleteItem } from "../../utils/api";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/api";
 import { signUp, signIn, getUserInfo, editProfile } from "../../utils/auth";
 import { getToken } from "../../utils/token";
 
@@ -151,16 +157,15 @@ function App() {
   const handleLikeClick = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
     !isLiked
-      ? api
-          .addCardLike(id, token)
+      ? addCardLike(id, token)
           .then((updatedCard) => {
+            console.log(id);
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
             );
           })
           .catch((err) => console.log(err))
-      : api
-          .removeCardLike(id, token)
+      : removeCardLike(id, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
@@ -251,6 +256,7 @@ function App() {
                       onEditProfileClick={handleEditProfileClick}
                       onLogOut={handleLogOut}
                       isLoggedIn={isLoggedIn}
+                      onLikeClick={handleLikeClick}
                     />
                   ) : (
                     <Navigate to="/" replace />
@@ -278,6 +284,7 @@ function App() {
               card={selectedCard}
               onClose={closeActiveModal}
               onDelete={handleDeleteItem}
+              isLoggedIn={isLoggedIn}
             />
             <HamburgerModal
               isOpen={activeModal === "hamburger"}

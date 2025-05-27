@@ -15,6 +15,7 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .sidebar__avatar-placeholder {
@@ -130,5 +131,6 @@
         visibility: visible;
         margin: 0;
         visibility: visible;
+        padding-bottom: 10px;
     }
 }

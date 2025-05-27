@@ -9,9 +9,8 @@ function Header({
   handleRegisterClick,
   handleLoginClick,
   weatherData,
-  isOpen,
   currentUser,
-  getInitial
+  getInitial,
 }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",

@@ -37,13 +37,13 @@ export default function EditProfileModal({
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    onEditProfileSubmit(name, avatar || undefined )
+    onEditProfileSubmit(name, avatar || undefined)
       .then(() => {
         setName("Name");
         setAvatar("Avatar");
         setInputValidation({
           name: false,
-          avatar: true
+          avatar: true,
         });
       })
       .catch((err) => {

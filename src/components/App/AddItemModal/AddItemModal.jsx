@@ -71,7 +71,9 @@ export default function AddItemModal({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       isFormValid={
-        inputValidation.name && inputValidation.imgUrl && inputValidation.weather
+        inputValidation.name &&
+        inputValidation.imgUrl &&
+        inputValidation.weather
       }
     >
       <label htmlFor="name" className="modal__label">
