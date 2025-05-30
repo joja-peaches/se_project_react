@@ -9,11 +9,11 @@ export default function AddItemModal({
   isFormValid,
 }) {
   const [name, setName] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
   const [inputValidation, setInputValidation] = useState({
     name: false,
-    imgUrl: false,
+    imageUrl: false,
     weather: null,
   });
 
@@ -27,15 +27,15 @@ export default function AddItemModal({
     setName(nameValue);
   };
 
-  const handleImgUrlChange = (e) => {
-    const imgUrlValue = e.target.value;
-    const isValidImgUrl =
-      imgUrlValue.includes("http://") || imgUrlValue.includes("https://");
+  const handleimageUrlChange = (e) => {
+    const imageUrlValue = e.target.value;
+    const isValidimageUrl =
+      imageUrlValue.includes("http://") || imageUrlValue.includes("https://");
     setInputValidation((prev) => ({
       ...prev,
-      imgUrl: isValidImgUrl,
+      imageUrl: isValidimageUrl,
     }));
-    setImgUrl(imgUrlValue);
+    setImageUrl(imageUrlValue);
   };
 
   const handleWeatherChange = (e) => {
@@ -53,12 +53,13 @@ export default function AddItemModal({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onAddItemModalSubmit(name, imgUrl, weather);
+    console.log("handleSubmit called!");
+    onAddItemModalSubmit({name, imageUrl, weather});
   };
 
   useEffect(() => {
     setName("");
-    setImgUrl("");
+    setImageUrl("");
     setWeather("");
   }, [isOpen]);
 
@@ -72,7 +73,7 @@ export default function AddItemModal({
       onSubmit={handleSubmit}
       isFormValid={
         inputValidation.name &&
-        inputValidation.imgUrl &&
+        inputValidation.imageUrl &&
         inputValidation.weather
       }
     >
@@ -100,8 +101,8 @@ export default function AddItemModal({
           minLength="2"
           maxLength="60"
           required
-          onChange={handleImgUrlChange}
-          value={imgUrl}
+          onChange={handleimageUrlChange}
+          value={imageUrl}
         />
       </label>
       <fieldset className="modal__radio-buttons">

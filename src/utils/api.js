@@ -20,7 +20,7 @@ function getItems() {
   });
 }
 
-function addItem(name, imageUrl, weather) {
+function addItem({name, imageUrl, weather}) {
   return _request(`${baseUrl}/items`, {
     method: "POST",
     headers: {

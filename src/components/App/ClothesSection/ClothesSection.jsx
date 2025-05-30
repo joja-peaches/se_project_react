@@ -21,18 +21,22 @@ function ClothesSection({
         </button>
       </div>
       <ul className="clothes-section__items">
-        {clothingItems.map((item) => {
-          return (
-            <ItemCard
-              key={item._id}
-              item={item}
-              onCardClick={onCardClick}
-              onLikeClick={onLikeClick}
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-            />
-          );
-        })}
+        {clothingItems
+          .filter((item) => {
+            return (item.owner === currentUser._id ? true : false);
+          })
+          .map((item) => {
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={onCardClick}
+                onLikeClick={onLikeClick}
+                isLoggedIn={isLoggedIn}
+                currentUser={currentUser}
+              />
+            );
+          })}
       </ul>
     </div>
   );

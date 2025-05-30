@@ -9,10 +9,19 @@ function ItemCard({ item, onCardClick, onLikeClick, isLoggedIn, currentUser }) {
   };
 
   const currentUserId = currentUser ? currentUser._id : null;
-  const [isLiked, setIsLiked] = useState(item.likes.includes(currentUserId));
+  // const [isLiked, setIsLiked] = useState(item.likes.includes(currentUserId));
+  console.log("ItemCard debug:", { item, currentUserId, likes: item.likes });
+  console.log("ItemCard debug:", { item, currentUserId, likes: item.likes });
+  console.log("Item name:", item.name);
+  console.log("Item imageUrl:", item.imageUrl);
+  console.log("Item object keys:", Object.keys(item));
+  const [isLiked, setIsLiked] = useState(
+    item.likes?.includes(currentUserId) || false
+  );
 
   const handleLike = () => {
     const itemId = item._id;
+    console.log(item, currentUser);
     const updatedIsLiked = !isLiked;
     setIsLiked(updatedIsLiked);
     onLikeClick({ id: itemId, isLiked });
