@@ -156,7 +156,7 @@
     }
 
     .modal__form {
-        max-width: 375px;
+        width: 343px;
         margin: 0 auto;
         padding: 32px 16px;
     }
@@ -170,7 +170,7 @@
     }
 
     .modal__input {
-        width: 343px;
+        width: 304px;
     }
 
     .modal__submit {

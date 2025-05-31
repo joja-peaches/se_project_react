@@ -25,13 +25,19 @@ function ModalWithForm({
         <button onClick={onClose} type="button" className="modal__close" />
         {children}
         <div className="modal__submit-container">
-          <button type="submit" className="modal__submit" disabled={!isFormValid}>
+          <button
+            type="submit"
+            className="modal__submit"
+            disabled={!isFormValid}
+          >
             {buttonText}
           </button>
           <button
             type="button"
             className="modal__login"
-            onClick={loginText === "or Log in" ? handleLoginClick : handleRegisterClick}
+            onClick={
+              loginText === "or Log in" ? handleLoginClick : handleRegisterClick
+            }
           >
             {loginText}
           </button>

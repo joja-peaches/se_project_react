@@ -77,14 +77,10 @@ function App() {
     setActiveModal("");
   };
 
-  const handleAddItemModalSubmit = ({name, imageUrl, weather}) => {
-    const token = getToken();
-    console.log("jwt: ", localStorage.getItem("jwt"));
-    addItem({name, imageUrl, weather})
+  const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
+    addItem({ name, imageUrl, weather })
       .then((newItem) => {
-        console.log("API call succeeded! New item:", newItem);
-        setClothingItems((clothingItems) => [newItem, ...clothingItems]);
-        
+        setClothingItems([...clothingItems, newItem.data]);
         closeActiveModal();
       })
       .catch((error) => {
@@ -294,6 +290,8 @@ function App() {
               isOpen={activeModal === "hamburger"}
               onClose={closeActiveModal}
               handleAddClick={handleAddClick}
+              isLoggedIn={isLoggedIn}
+              currentUser={currentUser}
             />
             <RegisterModal
               isOpen={activeModal === "register"}

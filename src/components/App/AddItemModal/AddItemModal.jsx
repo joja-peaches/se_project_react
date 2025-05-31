@@ -6,7 +6,6 @@ export default function AddItemModal({
   onClose,
   isOpen,
   onAddItemModalSubmit,
-  isFormValid,
 }) {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -53,8 +52,12 @@ export default function AddItemModal({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log("handleSubmit called!");
-    onAddItemModalSubmit({name, imageUrl, weather});
+    onAddItemModalSubmit({ name, imageUrl, weather });
+    setInputValidation(({
+      name: false,
+      imageUrl: false,
+      weather: null,
+    }));
   };
 
   useEffect(() => {
@@ -70,12 +73,12 @@ export default function AddItemModal({
       buttonText={"Add garment"}
       onClose={onClose}
       isOpen={isOpen}
-      onSubmit={handleSubmit}
       isFormValid={
         inputValidation.name &&
         inputValidation.imageUrl &&
         inputValidation.weather
       }
+      onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
         Name <br />

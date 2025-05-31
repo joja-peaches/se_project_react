@@ -6,10 +6,9 @@ import "./Main.css";
 
 function Main({ weatherData, handleCardClick, clothingItems, onLikeClick, isLoggedIn, currentUser }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log("All items:", clothingItems);
-  clothingItems.forEach((item, index) => {
-    console.log(`Item ${index}:`, item.name, item.imageUrl);
-  });
+  // clothingItems.forEach((item, index) => {
+  //   console.log(`Item ${index}:`, item.name, item.imageUrl);
+  // });
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
