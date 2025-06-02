@@ -70,6 +70,7 @@ export {
   addItem,
   deleteItem,
   _checkResponse,
+  _request,
   addCardLike,
   removeCardLike,
 };

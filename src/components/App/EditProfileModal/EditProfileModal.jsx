@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import "./EditProfileModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import CurrentUserContext from "../../../contexts/CurrentUserContext";
 
 export default function EditProfileModal({
   isOpen,
   onClose,
   onEditProfileSubmit,
 }) {
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
-  const [inputValidation, setInputValidation] = useState({
-    name: false,
-    avatar: false,
-  });
+  const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
+
+  const [name, setName] = useState(currentUser ? currentUser.name : "");
+  const [avatar, setAvatar] = useState(currentUser ? currentUser.avatar : "");
+  const [inputValidation, setInputValidation] = useState(
+    isLoggedIn
+      ? {
+          name: true,
+          avatar: true,
+        }
+      : {
+          name: false,
+          avatar: false,
+        }
+  );
 
   const handleNameChange = (e) => {
     const nameValue = e.target.value;
@@ -63,13 +73,13 @@ export default function EditProfileModal({
       }
       onSubmit={handleEditSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="editName" className="modal__label">
         Name*
         <br />
         <input
           type="text"
-          id="name"
-          placeholder="Name"
+          id="editName"
+          placeholder={currentUser ? currentUser.name : "Name"}
           className="modal__input"
           minLength="2"
           maxLength="40"
@@ -83,7 +93,7 @@ export default function EditProfileModal({
         <input
           type="url"
           id="avatarUrl"
-          placeholder="Avatar URL"
+          placeholder={currentUser ? currentUser.avatar : "Avatar URL"}
           className="modal__input"
           minLength="2"
           maxLength="100"

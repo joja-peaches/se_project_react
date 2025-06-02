@@ -80,7 +80,7 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     addItem({ name, imageUrl, weather })
       .then((newItem) => {
-        setClothingItems([...clothingItems, newItem.data]);
+        setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
       })
       .catch((error) => {
@@ -225,7 +225,6 @@ function App() {
               handleLoginClick={handleLoginClick}
               weatherData={weatherData}
               isOpen={activeModal === "hamburger"}
-              currentUser={currentUser}
               getInitial={getInitial}
             />
             <Routes>
@@ -237,8 +236,6 @@ function App() {
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onLikeClick={handleLikeClick}
-                    isLoggedIn={isLoggedIn}
-                    currentUser={currentUser}
                   />
                 }
               />
@@ -251,11 +248,9 @@ function App() {
                       onAddCardClick={handleAddClick}
                       clothingItems={clothingItems}
                       weatherData={weatherData}
-                      currentUser={currentUser}
                       getInitial={getInitial}
                       onEditProfileClick={handleEditProfileClick}
                       onLogOut={handleLogOut}
-                      isLoggedIn={isLoggedIn}
                       onLikeClick={handleLikeClick}
                     />
                   ) : (
@@ -284,14 +279,11 @@ function App() {
               card={selectedCard}
               onClose={closeActiveModal}
               onDelete={handleDeleteItem}
-              isLoggedIn={isLoggedIn}
             />
             <HamburgerModal
               isOpen={activeModal === "hamburger"}
               onClose={closeActiveModal}
               handleAddClick={handleAddClick}
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
             />
             <RegisterModal
               isOpen={activeModal === "register"}
@@ -299,7 +291,6 @@ function App() {
               onRegisterSubmit={handleRegisterSubmit}
               handleRegisterClick={handleRegisterClick}
               handleLoginClick={handleLoginClick}
-              setIsLoggedIn={setIsLoggedIn}
             />
             <LoginModal
               isOpen={activeModal === "login"}

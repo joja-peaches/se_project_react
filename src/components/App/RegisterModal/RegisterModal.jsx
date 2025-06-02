@@ -85,11 +85,11 @@ export default function RegisterModal({
         inputValidation.avatar
       }
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="registerEmail" className="modal__label">
         Email* <br />
         <input
           type="email"
-          id="email"
+          id="registerEmail"
           placeholder="Email"
           className="modal__input"
           minLength="2"
@@ -99,11 +99,11 @@ export default function RegisterModal({
           value={email}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="registerPassword" className="modal__label">
         Password* <br />
         <input
           type="password"
-          id="password"
+          id="registerPassword"
           placeholder="Password"
           className="modal__input"
           minLength="2"
@@ -126,11 +126,11 @@ export default function RegisterModal({
           value={name}
         />
       </label>
-      <label htmlFor="avatarUrl" className="modal__label">
+      <label htmlFor="registerAvatarUrl" className="modal__label">
         Avatar URL <br />
         <input
           type="url"
-          id="avatarUrl"
+          id="registerAvatarUrl"
           placeholder="Avatar URL"
           className="modal__input"
           minLength="2"

@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { useContext } from "react";
+import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import "./ItemCard.css";
 import noLikeButton from "../../../assets/images/not-liked-button.png";
 import likeButton from "../../../assets/images/liked-button.png";
 
-function ItemCard({ item, onCardClick, onLikeClick, isLoggedIn, currentUser }) {
+function ItemCard({ item, onCardClick, onLikeClick }) {
   const handleCardClick = () => {
     onCardClick(item);
   };
 
+  const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
   const currentUserId = currentUser ? currentUser._id : null;
   const [isLiked, setIsLiked] = useState(
     item.likes?.includes(currentUserId) || false

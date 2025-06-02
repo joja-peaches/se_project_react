@@ -80,11 +80,11 @@ export default function AddItemModal({
       }
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="itemName" className="modal__label">
         Name <br />
         <input
           type="text"
-          id="name"
+          id="itemName"
           placeholder="Name"
           className="modal__input"
           minLength="2"

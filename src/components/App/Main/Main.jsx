@@ -2,13 +2,13 @@ import { useContext } from "react";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../../contexts/CurrentTemperaturUnitContext";
+import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import "./Main.css";
 
-function Main({ weatherData, handleCardClick, clothingItems, onLikeClick, isLoggedIn, currentUser }) {
+function Main({ weatherData, handleCardClick, clothingItems, onLikeClick }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  // clothingItems.forEach((item, index) => {
-  //   console.log(`Item ${index}:`, item.name, item.imageUrl);
-  // });
+  const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
+
   return (
     <main>
       <WeatherCard weatherData={weatherData} />
@@ -29,8 +29,6 @@ function Main({ weatherData, handleCardClick, clothingItems, onLikeClick, isLogg
                   item={item}
                   onCardClick={handleCardClick}
                   onLikeClick={onLikeClick}
-                  isLoggedIn={isLoggedIn}
-                  currentUser={currentUser}
                 />
               );
             })}

@@ -1,15 +1,8 @@
 import { setToken, getToken } from "./token";
+import { _checkResponse, _request } from "./api";
 
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
-
-function _checkResponse(res) {
-  return res.ok ? res.json() : Promise.reject(res);
-}
-
-function _request(url, options) {
-  return fetch(url, options).then(_checkResponse);
-}
 
 function signUp(email, password, name, avatar) {
   return _request(`${baseUrl}/signup`, {

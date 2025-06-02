@@ -7,18 +7,15 @@ function Profile({
   onAddCardClick,
   clothingItems,
   weatherData,
-  currentUser,
   getInitial,
   onEditProfileClick,
   onLogOut,
-  isLoggedIn,
   onLikeClick,
 }) {
   return (
     <div className="profile">
       <SideBar
         weatherData={weatherData}
-        currentUser={currentUser}
         getInitial={getInitial}
         onEditProfileClick={onEditProfileClick}
         onLogOut={onLogOut}
@@ -27,9 +24,7 @@ function Profile({
         onCardClick={onCardClick}
         onAddCardClick={onAddCardClick}
         clothingItems={clothingItems}
-        isLoggedIn={isLoggedIn}
         onLikeClick={onLikeClick}
-        currentUser={currentUser}
       />
     </div>
   );

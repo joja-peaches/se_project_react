@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 import "./SideBar.css";
-import avatar from "../../../assets/images/avatar.png";
+import CurrentUserContext from "../../../contexts/CurrentUserContext";
 
-function SideBar({ weatherData, currentUser, getInitial, onEditProfileClick, onLogOut }) {
+function SideBar({ weatherData, getInitial, onEditProfileClick, onLogOut }) {
+  const { currentUser } = useContext(CurrentUserContext);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -33,7 +35,9 @@ function SideBar({ weatherData, currentUser, getInitial, onEditProfileClick, onL
             Change profile data
           </p>
           <Link to="/" className="sidebar__profile-logout">
-            <p className="sidebar__profile-text" onClick={onLogOut}>Log out</p>
+            <p className="sidebar__profile-text" onClick={onLogOut}>
+              Log out
+            </p>
           </Link>
         </div>
       </section>
