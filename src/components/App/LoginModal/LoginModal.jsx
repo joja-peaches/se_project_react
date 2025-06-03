@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useFormAndValidation } from "../../../hooks/useFormAndValidation";
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
@@ -7,49 +8,18 @@ export default function LoginModal({
   onClose,
   onLoginSubmit,
   handleRegisterClick,
-  handleLoginClick,
   setIsLoggedIn,
 }) {
-  const [email, setEmail] = useState("");
+  const { values, handleChange, isValid } = useFormAndValidation();
+
   const [nonExistantEmail, setNonExistantEmail] = useState(false);
-  const [password, setPassword] = useState("");
   const [incorrectPassword, setIncorrectPassword] = useState(false);
-  const [inputValidation, setInputValidation] = useState({
-    email: false,
-    password: false,
-  });
-
-  const handleEmailChange = (e) => {
-    const emailValue = e.target.value;
-    const isValidEmail =
-      emailValue.includes("@") &&
-      emailValue.length > 6 &&
-      emailValue.length < 20;
-    setInputValidation((prev) => ({
-      ...prev,
-      email: isValidEmail,
-    }));
-    setEmail(emailValue);
-    setNonExistantEmail(false);
-    setIncorrectPassword(false);
-  };
-
-  const handlePasswordChange = (e) => {
-    const passwordValue = e.target.value;
-    const isValidPassword =
-      passwordValue.length > 6 && passwordValue.length < 20;
-    setInputValidation((prev) => ({
-      ...prev,
-      password: isValidPassword,
-    }));
-    setPassword(e.target.value);
-    setNonExistantEmail(false);
-    setIncorrectPassword(false);
-  };
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    onLoginSubmit(email, password)
+    // onLoginSubmit(email, password)
+    console.log(values);
+    onLoginSubmit(values)
       .then(() => {
         setIsLoggedIn(true);
         setIncorrectPassword(false);
@@ -75,13 +45,14 @@ export default function LoginModal({
       onSubmit={handleLoginSubmit}
       loginText="or Register"
       handleRegisterClick={handleRegisterClick}
-      isFormValid={inputValidation.email && inputValidation.password}
+      isFormValid={isValid}
     >
       <label htmlFor="email" className="modal__label">
         Email* <br />
         <input
           type="email"
           id="email"
+          name="email"
           placeholder="Email"
           className={`modal__input ${
             nonExistantEmail ? "modal__input-error" : ""
@@ -89,15 +60,22 @@ export default function LoginModal({
           minLength="2"
           maxLength="40"
           required
-          onChange={handleEmailChange}
-          value={email}
+          onChange={handleChange}
+          value={values.email}
         />
       </label>
-      <label htmlFor="password" className={`modal__label ${incorrectPassword ? "modal__input-error" : ""}`}>
-        {incorrectPassword ? "Incorrect password" : "Password*"}<br />
+      <label
+        htmlFor="password"
+        className={`modal__label ${
+          incorrectPassword ? "modal__input-error" : ""
+        }`}
+      >
+        {incorrectPassword ? "Incorrect password" : "Password*"}
+        <br />
         <input
           type="password"
           id="password"
+          name="password"
           placeholder="Password"
           className={`modal__input ${
             incorrectPassword ? "modal__input-error" : ""
@@ -105,8 +83,8 @@ export default function LoginModal({
           minLength="2"
           maxLength="40"
           required
-          onChange={handlePasswordChange}
-          value={password}
+          onChange={handleChange}
+          value={values.password}
         />
       </label>
     </ModalWithForm>

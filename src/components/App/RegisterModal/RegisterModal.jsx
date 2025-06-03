@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useFormAndValidation } from "../../../hooks/useFormAndValidation";
 import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
@@ -6,66 +6,14 @@ export default function RegisterModal({
   isOpen,
   onClose,
   onRegisterSubmit,
-  handleRegisterClick,
   handleLoginClick,
-  setIsLoggedIn,
 }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
-  const [inputValidation, setInputValidation] = useState({
-    email: false,
-    password: false,
-    name: false,
-    avatar: false,
-  });
-
-  const handleEmailChange = (e) => {
-    const emailValue = e.target.value;
-    const isValidEmail =
-      emailValue.includes("@") &&
-      emailValue.length > 6 &&
-      emailValue.length < 40;
-    setInputValidation((prev) => ({
-      ...prev,
-      email: isValidEmail,
-    }));
-    setEmail(emailValue);
-  };
-  const handlePasswordChange = (e) => {
-    const passwordValue = e.target.value;
-    const isValidPassword =
-      passwordValue.length > 6 && passwordValue.length < 40;
-    setInputValidation((prev) => ({
-      ...prev,
-      password: isValidPassword,
-    }));
-    setPassword(passwordValue);
-  };
-  const handleNameChange = (e) => {
-    const nameValue = e.target.value;
-    const isValidName = nameValue.length > 6 && nameValue.length < 40;
-    setInputValidation((prev) => ({
-      ...prev,
-      name: isValidName,
-    }));
-    setName(nameValue);
-  };
-  const handleAvatarChange = (e) => {
-    const avatarValue = e.target.value;
-    const isValidAvatar =
-      avatarValue.includes("http://") || avatarValue.includes("https://");
-    setInputValidation((prev) => ({
-      ...prev,
-      avatar: isValidAvatar,
-    }));
-    setAvatar(e.target.value);
-  };
+  const { values, handleChange, isValid, resetForm } = useFormAndValidation();
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    onRegisterSubmit(email, password, name, avatar);
+    onRegisterSubmit(values);
+    resetForm();
   };
 
   return (
@@ -78,25 +26,21 @@ export default function RegisterModal({
       onSubmit={handleRegisterSubmit}
       loginText="or Log in"
       handleLoginClick={handleLoginClick}
-      isFormValid={
-        inputValidation.email &&
-        inputValidation.password &&
-        inputValidation.name &&
-        inputValidation.avatar
-      }
+      isFormValid={isValid}
     >
       <label htmlFor="registerEmail" className="modal__label">
         Email* <br />
         <input
           type="email"
           id="registerEmail"
+          name="email"
           placeholder="Email"
           className="modal__input"
           minLength="2"
           maxLength="40"
           required
-          onChange={handleEmailChange}
-          value={email}
+          onChange={handleChange}
+          value={values.email}
         />
       </label>
       <label htmlFor="registerPassword" className="modal__label">
@@ -104,13 +48,14 @@ export default function RegisterModal({
         <input
           type="password"
           id="registerPassword"
+          name="password"
           placeholder="Password"
           className="modal__input"
           minLength="2"
           maxLength="40"
           required
-          onChange={handlePasswordChange}
-          value={password}
+          onChange={handleChange}
+          value={values.password}
         />
       </label>
       <label htmlFor="name" className="modal__label">
@@ -118,12 +63,13 @@ export default function RegisterModal({
         <input
           type="text"
           id="name"
+          name="name"
           placeholder="Name"
           className="modal__input"
           minLength="2"
           maxLength="40"
-          onChange={handleNameChange}
-          value={name}
+          onChange={handleChange}
+          value={values.name}
         />
       </label>
       <label htmlFor="registerAvatarUrl" className="modal__label">
@@ -131,12 +77,13 @@ export default function RegisterModal({
         <input
           type="url"
           id="registerAvatarUrl"
+          name="avatar"
           placeholder="Avatar URL"
           className="modal__input"
           minLength="2"
           maxLength="100"
-          onChange={handleAvatarChange}
-          value={avatar}
+          onChange={handleChange}
+          value={values.avatar}
         />
       </label>
     </ModalWithForm>

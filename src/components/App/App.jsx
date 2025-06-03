@@ -100,19 +100,23 @@ function App() {
       .catch(console.error);
   };
 
-  const handleRegisterSubmit = (email, password, name, avatar) => {
-    signUp(email, password, name, avatar)
-      .then((res) => {
-        console.log("Register Submit");
+  const handleRegisterSubmit = (values) => {
+    console.log("Registration data: ", values);
+    signUp(values)
+      .then(() => {
         setCurrentUser({
-          email: email,
-          name: name,
-          avatar: avatar,
+          email: values.email,
+          name: values.name,
+          avatar: values.avatar,
         });
-        setIsLoggedIn(true);
-        closeActiveModal();
       })
-      .catch(console.error);
+      .then(() => {
+        handleLoginSubmit(values.email, values.password);
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        return Promise.reject(err);
+      });
   };
 
   const handleLoginSubmit = (email, password) => {
@@ -139,19 +143,17 @@ function App() {
   };
 
   const handleEditProfileSubmit = (name, avatar) => {
-    return editProfile(name, avatar)
-      .then((res) => {
-        setCurrentUser((prev) => ({
-          ...prev,
-          name: res.name,
-          avatar: res.avatar,
-        }));
-        closeActiveModal();
-        return res;
-      })
-      .catch((err) => {
-        return Promise.reject(err);
-      });
+    return (
+      editProfile(name, avatar)
+        .then((userInfo) => {
+          setCurrentUser(userInfo);
+          closeActiveModal();
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+          return Promise.reject(err);
+        })
+    );
   };
 
   const handleLikeClick = ({ id, isLiked }) => {
@@ -190,7 +192,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        setClothingItems(data);
+        setClothingItems(data.reverse());
       })
       .catch(console.error);
   }, []);

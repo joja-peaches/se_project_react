@@ -4,7 +4,7 @@ import { _checkResponse, _request } from "./api";
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
 
-function signUp(email, password, name, avatar) {
+function signUp({ email, password, name, avatar }) {
   return _request(`${baseUrl}/signup`, {
     method: "POST",
     headers: baseHeaders,
@@ -12,7 +12,7 @@ function signUp(email, password, name, avatar) {
   });
 }
 
-function signIn(email, password) {
+function signIn({ email, password }) {
   return _request(`${baseUrl}/signin`, {
     method: "POST",
     headers: baseHeaders,
@@ -34,7 +34,7 @@ function getUserInfo() {
   });
 }
 
-function editProfile(name, avatar) {
+function editProfile({ name, avatar }) {
   return _request(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {

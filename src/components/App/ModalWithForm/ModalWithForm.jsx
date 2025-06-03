@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./ModalWithForm.css";
 import useModalClose from "../../../hooks/useModalClose";
 
@@ -14,9 +15,7 @@ function ModalWithForm({
   handleLoginClick,
   isFormValid,
 }) {
-  {
-    useModalClose(isOpen, onClose);
-  }
+      useModalClose(isOpen, onClose);
 
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>

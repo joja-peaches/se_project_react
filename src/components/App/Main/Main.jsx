@@ -7,7 +7,6 @@ import "./Main.css";
 
 function Main({ weatherData, handleCardClick, clothingItems, onLikeClick }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
 
   return (
     <main>

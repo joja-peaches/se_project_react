@@ -4,10 +4,9 @@ import "./ItemModal.css";
 import useModalClose from "../../../hooks/useModalClose";
 
 function ItemModal({ isOpen, onClose, card, onDelete }) {
-  
-    useModalClose(isOpen, onClose);
-  
-    const isLoggedIn = useContext(CurrentUserContext);
+  useModalClose(isOpen, onClose);
+
+  const { isLoggedIn } = useContext(CurrentUserContext);
   return (
     <div className={`modal modal_type_image ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_image">
