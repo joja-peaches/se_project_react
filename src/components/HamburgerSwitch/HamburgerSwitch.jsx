@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./HamburgerSwitch.css";
-import CurrentTemperatureUnitContext from "../../../contexts/CurrentTemperaturUnitContext";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
 
 export default function HamburgerSwitch({ isOpen }) {
   const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(

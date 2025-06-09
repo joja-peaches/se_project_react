@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./ModalWithForm.css";
-import useModalClose from "../../../hooks/useModalClose";
+import useModalClose from "../../hooks/useModalClose";
 
 function ModalWithForm({
   children,

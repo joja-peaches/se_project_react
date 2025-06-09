@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import CurrentUserContext from "../../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./HamburgerModal.css";
 
 import HamburgerSwitch from "../HamburgerSwitch/HamburgerSwitch";

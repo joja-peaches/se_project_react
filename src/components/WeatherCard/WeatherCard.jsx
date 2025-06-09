@@ -1,9 +1,8 @@
-import dayStorm from "../../../assets/images/day/thunderstorm.png";
 import "./WeatherCard.css";
 
-import { weatherOptions } from "../../../utils/constants";
+import { weatherOptions } from "../../utils/constants";
 import { useContext } from "react";
-import CurrentTemperatureUnitContext from "../../../contexts/CurrentTemperaturUnitContext";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperaturUnitContext";
 
 function WeatherCard({ weatherData }) {
   const currentDate = new Date().toLocaleString("default", {

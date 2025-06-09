@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
-import Header from "./Header/Header";
-import Main from "./Main/Main";
-import Profile from "./Profile/Profile";
-import ItemModal from "./ItemModal/ItemModal";
-import AddItemModal from "./AddItemModal/AddItemModal";
-import HamburgerModal from "./HamburgerModal/HamburgerModal";
-import RegisterModal from "./RegisterModal/RegisterModal";
-import LoginModal from "./LoginModal/LoginModal";
-import EditProfileModal from "./EditProfileModal/EditProfileModal";
-import Footer from "./Footer/Footer";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
+import ItemModal from "../ItemModal/ItemModal";
+import AddItemModal from "../AddItemModal/AddItemModal";
+import HamburgerModal from "../HamburgerModal/HamburgerModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import Footer from "../Footer/Footer";
 
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";

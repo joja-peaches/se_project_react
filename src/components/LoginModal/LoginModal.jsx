@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useFormAndValidation } from "../../../hooks/useFormAndValidation";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 

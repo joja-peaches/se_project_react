@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import "./SideBar.css";
-import CurrentUserContext from "../../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function SideBar({ weatherData, getInitial, onEditProfileClick, onLogOut }) {
   const { currentUser } = useContext(CurrentUserContext);

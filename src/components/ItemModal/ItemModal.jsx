@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import CurrentUserContext from "../../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./ItemModal.css";
-import useModalClose from "../../../hooks/useModalClose";
+import useModalClose from "../../hooks/useModalClose";
 
 function ItemModal({ isOpen, onClose, card, onDelete }) {
   useModalClose(isOpen, onClose);
