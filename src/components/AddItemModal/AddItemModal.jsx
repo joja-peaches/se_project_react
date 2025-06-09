@@ -49,7 +49,7 @@ export default function AddItemModal({
           placeholder="Image URL"
           className="modal__input"
           minLength="2"
-          maxLength="60"
+          maxLength="100"
           required
           onChange={handleChange}
           value={values.imageUrl || ""}
