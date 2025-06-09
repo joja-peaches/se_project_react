@@ -7,7 +7,6 @@ export function useFormAndValidation() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log("Field name:", name, "Field value:", value); // Add this line
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: e.target.validationMessage });
     setIsValid(e.target.closest("form").checkValidity());

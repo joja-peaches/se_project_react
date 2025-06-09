@@ -28,7 +28,7 @@ export default function RegisterModal({
       handleLoginClick={handleLoginClick}
       isFormValid={isValid}
     >
-      <label htmlFor="registerEmail" className="modal__label">
+      <label className="modal__label">
         Email* <br />
         <input
           type="email"
@@ -43,7 +43,7 @@ export default function RegisterModal({
           value={values.email}
         />
       </label>
-      <label htmlFor="registerPassword" className="modal__label">
+      <label className="modal__label">
         Password* <br />
         <input
           type="password"
@@ -58,7 +58,7 @@ export default function RegisterModal({
           value={values.password}
         />
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label className="modal__label">
         Name <br />
         <input
           type="text"
@@ -72,7 +72,7 @@ export default function RegisterModal({
           value={values.name}
         />
       </label>
-      <label htmlFor="registerAvatarUrl" className="modal__label">
+      <label className="modal__label">
         Avatar URL <br />
         <input
           type="url"

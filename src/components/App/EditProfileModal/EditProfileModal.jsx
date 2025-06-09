@@ -35,9 +35,8 @@ export default function EditProfileModal({
       isFormValid={isValid}
       onSubmit={handleEditSubmit}
     >
-      <label htmlFor="editName" className="modal__label">
+      <label className="modal__label">
         Name*
-        <br />
         <input
           type="text"
           id="editName"
@@ -50,9 +49,8 @@ export default function EditProfileModal({
           value={values.name}
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label className="modal__label">
         Avatar
-        <br />
         <input
           type="url"
           id="avatar"

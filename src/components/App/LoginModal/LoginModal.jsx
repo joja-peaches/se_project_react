@@ -17,9 +17,7 @@ export default function LoginModal({
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    // onLoginSubmit(email, password)
-    console.log(values);
-    onLoginSubmit(values)
+    onLoginSubmit(values.email, values.password)
       .then(() => {
         setIsLoggedIn(true);
         setIncorrectPassword(false);
@@ -47,7 +45,7 @@ export default function LoginModal({
       handleRegisterClick={handleRegisterClick}
       isFormValid={isValid}
     >
-      <label htmlFor="email" className="modal__label">
+      <label className="modal__label">
         Email* <br />
         <input
           type="email"
@@ -65,7 +63,6 @@ export default function LoginModal({
         />
       </label>
       <label
-        htmlFor="password"
         className={`modal__label ${
           incorrectPassword ? "modal__input-error" : ""
         }`}

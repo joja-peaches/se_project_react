@@ -101,7 +101,6 @@ function App() {
   };
 
   const handleRegisterSubmit = (values) => {
-    console.log("Registration data: ", values);
     signUp(values)
       .then(() => {
         setCurrentUser({
@@ -120,7 +119,7 @@ function App() {
   };
 
   const handleLoginSubmit = (email, password) => {
-    return signIn(email, password)
+    return signIn({email, password})
       .then((res) => {
         const token = getToken();
         return getUserInfo(token);
