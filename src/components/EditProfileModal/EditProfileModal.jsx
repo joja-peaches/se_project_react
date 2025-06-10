@@ -58,7 +58,6 @@ export default function EditProfileModal({
           placeholder={currentUser ? currentUser.avatar : "Avatar URL"}
           className="modal__input"
           minLength="2"
-          maxLength="100"
           onChange={handleChange}
           value={values.avatar}
         />
