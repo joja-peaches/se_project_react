@@ -41,7 +41,7 @@
 }
 
 .modal__close {
-    background-image: url(../../../assets/images/close.png);
+    background-image: url(../../../src/assets/images/close.png);
     background-size: cover;
     border: none;
     position: absolute;

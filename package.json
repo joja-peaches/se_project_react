@@ -27,6 +27,8 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "gh-pages": "^6.3.0",
     "globals": "^15.11.0",
+    "jest": "^30.0.0",
+    "supertest": "^7.1.1",
     "vite": "^5.4.10"
   },
   "homepage": "https://joja-peaches.github.io/se_project_react/"
