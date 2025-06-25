@@ -41,7 +41,7 @@
 }
 
 .modal__close {
-    background-image: url(../../../src/assets/images/close.png);
+    background-image: url(../../assets/images/close.png);
     background-size: cover;
     border: none;
     position: absolute;
@@ -50,6 +50,23 @@
     right: 28px;
     width: 20px;
     height: 20px;
+}
+
+.modal__close-type-light {
+    background-image: url(../../assets/images/close-white.png);
+    background-size: cover;
+    border: none;
+    position: absolute;
+    padding: 0;
+    top: 20px;
+    right: 28px;
+    width: 14px;
+    height: 14px;
+    border: none;
+}
+
+.modal__close-type-light:hover {
+    cursor: pointer;
 }
 
 .modal__close:hover {
@@ -179,7 +196,7 @@
     }
 
     .modal__close {
-        background-image: url(../../../assets/images/close-black.png);
+        background-image: url(../../assets/images/close-black.png);
         background-color: #fff;
         width: 21.21px;
         height: 21.41px;

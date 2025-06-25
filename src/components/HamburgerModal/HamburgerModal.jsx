@@ -22,7 +22,7 @@ function HamburgerModal({ isOpen, onClose, handleAddClick }) {
           <p className="modal__username">
             {isLoggedIn ? currentUser.name : ""}
           </p>
-          <img
+          <img 
             src={isLoggedIn ? currentUser.avatar : ""}
             alt={isLoggedIn ? currentUser.name : ""}
             className="modal__avatar"

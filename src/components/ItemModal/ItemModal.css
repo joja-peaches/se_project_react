@@ -8,15 +8,22 @@
 }
 
 .modal__close-item-modal {
-    background-image: url(../../../assets/images/close-white.png);
+    background-image: url(../../assets/images/close-white.png);
+    position: absolute;
+    border: none;
+    padding: 0;
     top: 24px;
     right: 24px;
-    background-color: none;
+    height: 14px;
+    width: 14px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .modal__close-item-modal:hover {
     background-color: rgb(0, 0, 0, 0);
 }
+
 
 .modal__image {
     height: 498px;
@@ -60,17 +67,13 @@
 }
 
 @media screen and (max-width: 480px) {
-    .modal {
-        
-    }
-
     .modal__content {
         max-width: 343px;
         max-height: 463px;
     }
 
     .modal__close-item-modal {
-        background-image: url(../../../assets/images/close-black.png);
+        background-image: url(../../assets/images/close-black.png);
         top: 21.21px;
         right: 21.24px;
         background-color: none;

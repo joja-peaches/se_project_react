@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import ItemModal from "../ItemModal/ItemModal";
+import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import HamburgerModal from "../HamburgerModal/HamburgerModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -73,6 +74,10 @@ function App() {
     setActiveModal("edit");
   };
 
+  const handleDeleteItemClick = () => {
+    setActiveModal("delete");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -119,7 +124,7 @@ function App() {
   };
 
   const handleLoginSubmit = (email, password) => {
-    return signIn({email, password})
+    return signIn({ email, password })
       .then((res) => {
         const token = getToken();
         return getUserInfo(token);
@@ -142,17 +147,15 @@ function App() {
   };
 
   const handleEditProfileSubmit = (name, avatar) => {
-    return (
-      editProfile(name, avatar)
-        .then((userInfo) => {
-          setCurrentUser(userInfo);
-          closeActiveModal();
-        })
-        .catch((err) => {
-          console.error("Error:", err);
-          return Promise.reject(err);
-        })
-    );
+    return editProfile(name, avatar)
+      .then((userInfo) => {
+        setCurrentUser(userInfo);
+        closeActiveModal();
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        return Promise.reject(err);
+      });
   };
 
   const handleLikeClick = ({ id, isLiked }) => {
@@ -278,6 +281,11 @@ function App() {
             <ItemModal
               isOpen={activeModal === "preview"}
               card={selectedCard}
+              onClose={closeActiveModal}
+              onDelete={handleDeleteItemClick}
+            />
+            <DeleteItemModal
+              isOpen={activeModal === "delete"}
               onClose={closeActiveModal}
               onDelete={handleDeleteItem}
             />
