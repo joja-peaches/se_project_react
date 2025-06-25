@@ -1,6 +1,6 @@
 import { getToken } from "./token";
+import { baseUrl } from "./constants";
 
-const baseUrl = "http://localhost:3001";
 const baseHeaders = {
   Accept: "application/json",
   "Content-Type": "application/json",

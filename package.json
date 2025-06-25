@@ -3,15 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://gorgo.blinklab.com",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && scp -r ./dist/* joja_peaches7@gorgo.blinklab.com:/home/joja_peaches7/frontend"
   },
   "dependencies": {
+    "env": "^0.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.0"
@@ -30,6 +32,5 @@
     "jest": "^30.0.0",
     "supertest": "^7.1.1",
     "vite": "^5.4.10"
-  },
-  "homepage": "https://joja-peaches.github.io/se_project_react/"
+  }
 }
