@@ -52,6 +52,6 @@ Key Programming Techniques:
 
 This project demonstrates a complete full-stack application with modern web development practices, secure authentication, and real-world API integration.
 
-Live page [here](https://joja-peaches.github.io/se_project_react/)
+Live page [here](https://gorgo.blinklab.com)
 
 Backend code [here](https://github.com/joja-peaches/se_project_express)
