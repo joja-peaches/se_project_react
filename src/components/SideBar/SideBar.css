@@ -76,9 +76,9 @@
         border-right: 0;
         border-left: 0;
         border-color: rgb(0, 0, 0, .3);
-        width: 343px;
         align-content: auto;
-        padding: 20px 0 0;
+        padding: 20px 16px 0;
+        /* flex-direction: row; */
     }
 
     .sidebar__date-and-location {
@@ -89,14 +89,13 @@
         font-size: 16px;
         line-height: 20px;
         top: -50px;
-        left: 101px;
+        left: 120px;
         margin: 0;
     }
 
     .sidebar__avatar {
         width: 56px;
         height: 56px;
-        padding: 0 20px 0 0;
     }
 
     .sidebar__avatar-placeholder {
@@ -120,6 +119,11 @@
         line-height: 100%;
         visibility: visible;
         padding-bottom: 4px;
+    }
+    
+    .sidebar__mobile-menu {
+        padding: 0 0 8px 72px;
+        margin: -36px 0 0;
     }
 
     .sidebar__profile-text {

@@ -4,10 +4,11 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./HamburgerModal.css";
 
 import HamburgerSwitch from "../HamburgerSwitch/HamburgerSwitch";
+import useModalClose from "../../hooks/useModalClose";
 
 function HamburgerModal({ isOpen, onClose, handleAddClick }) {
   const { isLoggedIn, currentUser } = useContext(CurrentUserContext);
-
+  useModalClose(isOpen, onClose);
   return (
     <div
       className={`modal modal_type_hamburger ${isOpen ? "modal_opened" : ""}`}
@@ -22,7 +23,7 @@ function HamburgerModal({ isOpen, onClose, handleAddClick }) {
           <p className="modal__username">
             {isLoggedIn ? currentUser.name : ""}
           </p>
-          <img 
+          <img
             src={isLoggedIn ? currentUser.avatar : ""}
             alt={isLoggedIn ? currentUser.name : ""}
             className="modal__avatar"

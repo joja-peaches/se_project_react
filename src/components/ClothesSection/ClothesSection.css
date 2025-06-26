@@ -41,6 +41,15 @@
     .clothes-section {
         padding-top: 20px;
         width: 375px;
+        /* justify-content: space-between; */
+    }
+
+    .clothes-section__add-button {
+        width: 150px;
+    }
+
+    .clothes-section__title {
+        justify-content: space-between;
     }
 
     .clothes-section__items {

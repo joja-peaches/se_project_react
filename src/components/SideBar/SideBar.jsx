@@ -10,6 +10,8 @@ function SideBar({ weatherData, getInitial, onEditProfileClick, onLogOut }) {
     month: "long",
     day: "numeric",
   });
+  const viewportWidth = window.innerWidth;
+
   return (
     <div className="sidebar">
       <p className="sidebar__date-and-location">

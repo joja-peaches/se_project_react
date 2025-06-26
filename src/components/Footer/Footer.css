@@ -1,5 +1,11 @@
 .footer {
     display: flex;
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
     justify-content: space-between;
 }
 
@@ -12,8 +18,8 @@
 
 @media screen and (max-width: 480px) {
     .footer {
-        padding: 0 16px;
-        display: sticky;
-        bottom: 20px;
+        position: static;
+        box-sizing: border-box;
+        width: 100%;
     }
 }
