@@ -16,6 +16,21 @@
     right: 24px;
     height: 14px;
     width: 14px;
+    background-color: rgba(130, 40, 40, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal__close-type-light {
+    background-image: url(../../assets/images/close-white.png);
+    position: absolute;
+    border: none;
+    padding: 0;
+    top: 24px;
+    right: 24px;
+    height: 14px;
+    width: 14px;
+    background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -23,7 +38,6 @@
 .modal__close-item-modal:hover {
     background-color: rgb(0, 0, 0, 0);
 }
-
 
 .modal__image {
     height: 498px;

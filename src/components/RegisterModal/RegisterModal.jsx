@@ -1,5 +1,4 @@
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
-import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 export default function RegisterModal({
