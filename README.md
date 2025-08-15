@@ -37,7 +37,7 @@ By integrating weather data with a customizable wardrobe, the app delivers smart
 
 - **Add Garment Modal**: Add garment modal from a sigular ModalWithForm component.
 <p align="center">
-  <img src="https://iili.io/FD5hH0u.jpg" alt="Register modal on home page" width="600" />
+  <img src="https://iili.io/FD5hFOQ.jpg" alt="Register modal on home page" width="600" />
 </p>
 
 - **Saved Articles**: Save favorite articles to your personal page with option to delete.
