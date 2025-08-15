@@ -1,54 +1,67 @@
-WTWR - What To Wear App - Full Stack application
+<h1 align="center">🧥 WTWR — What To Wear</h1>
+<p align="center"><strong>Weather-based clothing recommendation app built with the MERN stack</strong></p>
 
-The WTWR app is a weather-based clothing recommendation application that helps users decide what to wear based on current weather conditions. The app provides personalized clothing suggestions by analyzing the temperature and weather data for the user's location.
+---
 
-Key Features:
-- Weather Integration: Uses a weather API to fetch real-time weather data and temperature information
-- Smart Clothing Recommendations: Filters and displays clothing items based on current weather conditions (hot, warm, cold)
-- User Authentication: Complete user registration and login system with JWT token-based authentication
-- Personal Wardrobe Management: Registered users can add, view, and delete their own clothing items
-- Social Features: Users can like/unlike clothing items from other users
-- Profile Management: Users can edit their profile information including name and avatar
-- Responsive Design: Mobile-friendly interface with hamburger menu for smaller screens
-- Temperature Unit Toggle: Switch between Fahrenheit and Celsius temperature displays
+## 🌦️ About the App
 
-Technologies and Techniques Used
-Frontend Technologies:
-- React: Component-based UI library with functional components and hooks
-- React Router: Client-side routing for navigation between pages
-- React Context API: State management for current user and temperature unit preferences
-- Custom Hooks: useFormAndValidation for form handling and validation
-- CSS: Styling and responsive design
-- Vite: Modern build tool for faster development
+**WTWR** (*What To Wear*) is a full-stack web application that helps users decide what to wear based on real-time weather conditions.  
+By integrating weather data with a customizable wardrobe, the app delivers smart, personalized clothing suggestions.
 
-Backend Technologies:
-- Node.js: JavaScript runtime environment
-- Express.js: Web application framework for building REST APIs
-- MongoDB: NoSQL database for data storage
-- Mongoose: Object Data Modeling (ODM) library for MongoDB
-- JWT (JSON Web Tokens): Secure user authentication and authorization
-- bcrypt: Password hashing for security
-- CORS: Cross-Origin Resource Sharing middleware
-- Validator: Data validation library
+---
 
-Development Tools:
-- ESLint: Code linting with Airbnb configuration
-- Prettier: Code formatting
-- Nodemon: Development server with hot reload
+## ✨ Key Features
 
-API Integration:
-- Weather API: External service for fetching real-time weather data
-- RESTful API Design: HTTP methods (GET, POST, PATCH, DELETE) for CRUD operations
+- 🌤️ **Weather Integration:** Real-time temperature data using a weather API  
+- 🧣 **Smart Recommendations:** Suggests clothing based on "hot", "warm", or "cold" weather  
+- 👤 **User Authentication:** JWT token-based login and registration  
+- 🧺 **Wardrobe Management:** Add, view, and remove your own clothing items  
+- ❤️ **Social Features:** Like and unlike clothing items from other users  
+- 📝 **Profile Settings:** Edit your name and avatar  
+- 📱 **Responsive Design:** Mobile-first layout with hamburger menu  
+- 🌡️ **Temp Toggle:** Switch between Fahrenheit and Celsius  
 
-Key Programming Techniques:
-- Component-based architecture with reusable React components
-- State management using React hooks (useState, useEffect, useContext)
-- Asynchronous programming with Promises and async/await
-- Form validation with custom validation logic
-- Protected routes requiring authentication
-- Error handling with try-catch blocks and proper error responses
-- Token-based authentication with localStorage persistence
-- Responsive design principles for mobile compatibility
+---
+
+## 🖼️ Screenshots
+
+- **Home Page**: Landing page for WTWR including articles of clothing appropriate for the current weather taken from the Weather API.
+<p align="center">
+  <img src="https://iili.io/FD5Xwla.jpg" alt="Landing page for WTWR" width="600" />
+</p>
+
+- **Register Modal**: Registration and login modals created from a sigular ModalWithForm component.
+<p align="center">
+  <img src="https://iili.io/FD5hH0u.jpg" alt="Register modal on home page" width="600" />
+</p>
+
+- **Add Garment Modal**: Add garment modal from a sigular ModalWithForm component.
+<p align="center">
+  <img src="https://iili.io/FD5hH0u.jpg" alt="Register modal on home page" width="600" />
+</p>
+
+- **Saved Articles**: Save favorite articles to your personal page with option to delete.
+<p align="center">
+  <img src="https://iili.io/FD5hKbV.jpg" alt="Saved clothing items on profile page" width="600" />
+</p>
+
+- **Garment modal**: View your garment with an option to delete the item.
+<p align="center">
+  <img src="https://iili.io/FD5hBWP.jpg" alt="Garnent modal" width="600" />
+</p>
+
+---
+
+## 🧰 Tech Stack
+
+### 🖥️ Frontend
+- ⚛️ **React** – Component-based UI with hooks  
+- 🔀 **React Router** – Client-side routing  
+- 🌐 **Context API** – Global state management  
+- 🎣 **Custom Hooks** – Reusable form validation (`useFormAndValidation`)  
+- 🎨 **CSS** – Custom styling & responsive design  
+
+---
 
 This project demonstrates a complete full-stack application with modern web development practices, secure authentication, and real-world API integration.
 
